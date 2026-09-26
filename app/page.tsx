@@ -179,23 +179,6 @@ export default function Home() {
             <span className="topbar-dot"></span>
             <span>Atendimento aberto hoje • Vila Carmosina, Itaquera e Guaianazes</span>
           </div>
-          <div className="topbar-links">
-            <a href={LINKS.ifood} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <IconIfood size={14} /> iFood
-            </a>
-            <span>•</span>
-            <a href={LINKS.food99} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <Icon99Food size={14} /> 99Food
-            </a>
-            <span>•</span>
-            <a href={LINKS.keeta} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <IconKeeta size={14} /> Keeta
-            </a>
-            <span>•</span>
-            <a href={LINKS.whatsappGeral} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <IconWhatsApp size={13} color="#25d366" /> WhatsApp
-            </a>
-          </div>
         </div>
       </div>
 
@@ -221,103 +204,65 @@ export default function Home() {
             <a href="#faq">Dúvidas</a>
             <a href="#onde">Onde Estamos</a>
           </nav>
-
-          <div className="header-actions">
-            <a
-              href={LINKS.whatsappGeral}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-whatsapp btn-sm"
-            >
-              <IconWhatsApp size={16} />
-              <span>Pedir no WhatsApp</span>
-            </a>
-          </div>
         </div>
       </header>
 
       <main>
         {/* Hero Section */}
         <section className="hero-section">
-          <div className="container hero-grid">
-            <div>
-              <div className="hero-pill">
-                <IconCake size={16} color="var(--brand-red)" />
-                <span>Vila Carmosina • Itaquera & Guaianazes • Dom a Sex 12:30–20:30</span>
-              </div>
-
-              <h1 className="hero-title">
-                Bolos artesanais com <span className="highlight">massa molhadinha</span> e recheio de verdade.
-              </h1>
-
-              <p className="hero-desc">
-                Mini bolos vulcão irresistíveis, caseirinhos para o café, sobremesas geladas e bolos decorados sob medida para sua festa. Feitos diariamente com carinho pelo Diego e família.
-              </p>
-
-              <div className="hero-cta-group">
-                <a
-                  href={LINKS.whatsappGeral}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-whatsapp btn-lg"
-                >
-                  <IconWhatsApp size={18} />
-                  <span>Fazer Pedido no WhatsApp</span>
-                </a>
-                <a href="#festas" className="btn btn-primary btn-lg">
-                  <IconPartyCake size={17} />
-                  <span>Orçar Bolo de Festa</span>
-                </a>
-                <a href="#cardapio" className="btn btn-secondary btn-lg">
-                  <IconCloche size={16} />
-                  <span>Ver Cardápio</span>
-                </a>
-              </div>
-
-              <div className="delivery-badge-bar">
-                <span className="delivery-badge-label">Peça também no seu app favorito:</span>
-                <div className="delivery-badge-pills">
-                  <a href={LINKS.ifood} target="_blank" rel="noreferrer" className="delivery-app-chip">
-                    <IconIfood size={16} />
-                    <span>iFood Delivery</span>
-                  </a>
-                  <a href={LINKS.food99} target="_blank" rel="noreferrer" className="delivery-app-chip">
-                    <Icon99Food size={16} />
-                    <span>99Food</span>
-                  </a>
-                  <a href={LINKS.keeta} target="_blank" rel="noreferrer" className="delivery-app-chip">
-                    <IconKeeta size={16} />
-                    <span>Keeta</span>
-                  </a>
-                </div>
-              </div>
+          <div className="container hero-centered">
+            {/* Imagem do Casal Transparente com degradê inferior acima do H1 */}
+            <div className="hero-couple-container">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/casal.webp"
+                alt="Diego e família - Confeiteiros da D&A Doce Amor"
+                className="hero-couple-img"
+              />
             </div>
 
-            {/* Hero Visual Card using casal.webp */}
-            <div className="hero-visual-card">
-              <div className="hero-image-wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/casal.webp"
-                  alt="Diego e família - Confeiteiros da D&A Doce Amor"
-                />
-              </div>
-              <div className="hero-floating-badge">
-                <div>
-                  <div className="hero-floating-badge-title" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                    <span>Feito com amor pelo Diego & Família</span>
-                    <IconHeart size={14} color="var(--brand-red)" />
-                  </div>
-                  <div className="hero-floating-badge-sub">Produção diária artesanal • Pedidos sob encomenda</div>
-                </div>
-                <a
-                  href={LINKS.whatsappGeral}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-primary btn-sm"
-                >
-                  <IconWhatsApp size={14} />
-                  <span>Conversar</span>
+            <h1 className="hero-title">
+              Bolos artesanais com <span className="highlight">massa molhadinha</span> e recheio de verdade.
+            </h1>
+
+            <p className="hero-desc">
+              Mini bolos vulcão irresistíveis, caseirinhos para o café, sobremesas geladas e bolos decorados sob medida para sua festa. Feitos diariamente com carinho pelo Diego e família.
+            </p>
+
+            <div className="hero-cta-group">
+              <a
+                href={LINKS.whatsappGeral}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-whatsapp btn-lg"
+              >
+                <IconWhatsApp size={18} />
+                <span>Fazer Pedido no WhatsApp</span>
+              </a>
+              <a href="#festas" className="btn btn-primary btn-lg">
+                <IconPartyCake size={17} />
+                <span>Orçar Bolo de Festa</span>
+              </a>
+              <a href="#cardapio" className="btn btn-secondary btn-lg">
+                <IconCloche size={16} />
+                <span>Ver Cardápio</span>
+              </a>
+            </div>
+
+            <div className="delivery-badge-bar">
+              <span className="delivery-badge-label">Peça também no seu app favorito:</span>
+              <div className="delivery-badge-pills">
+                <a href={LINKS.ifood} target="_blank" rel="noreferrer" className="delivery-app-chip">
+                  <IconIfood size={16} />
+                  <span>iFood Delivery</span>
+                </a>
+                <a href={LINKS.food99} target="_blank" rel="noreferrer" className="delivery-app-chip">
+                  <Icon99Food size={16} />
+                  <span>99Food</span>
+                </a>
+                <a href={LINKS.keeta} target="_blank" rel="noreferrer" className="delivery-app-chip">
+                  <IconKeeta size={16} />
+                  <span>Keeta</span>
                 </a>
               </div>
             </div>
