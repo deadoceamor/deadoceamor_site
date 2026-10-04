@@ -24,7 +24,11 @@ import {
   IconCloche,
   IconIfood,
   Icon99Food,
-  IconKeeta
+  IconKeeta,
+  IconInstagram,
+  IconMenu,
+  IconClose,
+  IconNotice
 } from "./components/Icons";
 
 const WHATS_NUMBER = "5511992360531";
@@ -33,14 +37,15 @@ const waLink = (msg: string) =>
   `https://wa.me/${WHATS_NUMBER}?text=${encodeURIComponent(msg)}`;
 
 const LINKS = {
-  whatsappGeral: waLink("Olá, Diego! Vim pelo site D&A Doce Amor e gostaria de fazer um pedido 🍰"),
+  whatsappGeral: waLink("Olá, Diego e Andressa! Vim pelo site D&A Doce Amor e gostaria de fazer um pedido 🍰"),
   whatsappCardapio: waLink("Olá! Gostaria de ver as opções de bolos e doces disponíveis para hoje 😋"),
   whatsappFesta: waLink(
-    "Olá, Diego! Quero encomendar um bolo de festa 🎂\n\n• Data da comemoração: \n• Quantidade de convidados: \n• Sabor preferido: \n• Retirada na Vila Carmosina ou Entrega: "
+    "Olá, Diego e Andressa! Quero encomendar um bolo de festa 🎂\n\n• Data da comemoração: \n• Quantidade de convidados: \n• Sabor preferido: \n• Retirada na Vila Carmosina ou Entrega: "
   ),
   whatsappEmpresa: waLink(
-    "Olá, Diego! Gostaria de um orçamento de bolos e fatias para evento corporativo da minha empresa ☕"
+    "Olá, Diego e Andressa! Gostaria de um orçamento de bolos e fatias para evento corporativo da minha empresa ☕"
   ),
+  instagram: "https://www.instagram.com/deadoceamor",
   ifood: "https://www.ifood.com.br/delivery/sao-paulo-sp/da-doce-amor-bolos-festa-e-sobremesas-itaquera/ea364cc7-eee7-4c77-bcc3-dbbc60b9ba5d?UTM_Medium=share",
   keeta: "https://url-eu.mykeeta.com/XNTkur0z",
   food99: "https://oia.99app.com/dlp9/AeAiMv?area=BR"
@@ -161,6 +166,7 @@ const REVIEWS = [
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("todos");
   const [guests, setGuests] = useState<number>(20);
+  const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
 
   const filteredProducts =
     activeTab === "todos"
@@ -196,6 +202,7 @@ export default function Home() {
           </a>
 
           <nav className="nav-desktop">
+            <a href="#corporativo" style={{ fontWeight: 700, color: "var(--brand-red)" }}>Corporativo B2B</a>
             <a href="#cardapio">Cardápio</a>
             <a href="#festas">Bolos de Festa</a>
             <a href="#calculadora">Calculadora</a>
@@ -204,72 +211,360 @@ export default function Home() {
             <a href="#faq">Dúvidas</a>
             <a href="#onde">Onde Estamos</a>
           </nav>
+
+          {/* Mobile Menu Hamburger Button */}
+          <button
+            type="button"
+            className="mobile-menu-btn"
+            onClick={() => setIsDrawerOpen(true)}
+            aria-label="Abrir menu de navegação"
+          >
+            <IconMenu size={22} />
+          </button>
         </div>
       </header>
 
+      {/* Mobile Navigation Drawer */}
+      <div
+        className={`drawer-backdrop ${isDrawerOpen ? "open" : ""}`}
+        onClick={() => setIsDrawerOpen(false)}
+        aria-hidden={!isDrawerOpen}
+      />
+      <aside
+        className={`drawer-panel ${isDrawerOpen ? "open" : ""}`}
+        aria-label="Menu de navegação mobile"
+      >
+        <div className="drawer-header">
+          <div className="drawer-brand">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logomarca.webp" alt="Doce Amor" style={{ height: "40px", width: "auto" }} />
+            <span className="brand-name" style={{ fontSize: "24px", top: "4px" }}>Doce Amor</span>
+          </div>
+          <button
+            type="button"
+            className="drawer-close-btn"
+            onClick={() => setIsDrawerOpen(false)}
+            aria-label="Fechar menu"
+          >
+            <IconClose size={20} />
+          </button>
+        </div>
+
+        <nav className="drawer-nav">
+          <a
+            href="#corporativo"
+            className="drawer-link highlight"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconBuilding size={18} />
+            <span>Corporativo B2B</span>
+          </a>
+          <a
+            href="#cardapio"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconCloche size={18} />
+            <span>Cardápio da Semana</span>
+          </a>
+          <a
+            href="#festas"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconPartyCake size={18} />
+            <span>Bolos de Festa</span>
+          </a>
+          <a
+            href="#calculadora"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconUsers size={18} />
+            <span>Calculadora de Festa</span>
+          </a>
+          <a
+            href="#historia"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconHeart size={18} />
+            <span>Quem Somos</span>
+          </a>
+          <a
+            href="#avaliacoes"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconStar size={18} />
+            <span>Avaliações</span>
+          </a>
+          <a
+            href="#faq"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconNotice size={18} />
+            <span>Dúvidas Frequentes</span>
+          </a>
+          <a
+            href="#onde"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconPin size={18} />
+            <span>Onde Estamos</span>
+          </a>
+        </nav>
+
+        <div className="drawer-footer">
+          <a
+            href={LINKS.whatsappGeral}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-whatsapp btn-md"
+            style={{ width: "100%", justifyContent: "center" }}
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconWhatsApp size={18} />
+            <span>Pedir no WhatsApp</span>
+          </a>
+          <a
+            href={LINKS.instagram}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary btn-sm"
+            style={{ width: "100%", justifyContent: "center" }}
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconInstagram size={16} color="#E1306C" />
+            <span>Instagram: @deadoceamor</span>
+          </a>
+        </div>
+      </aside>
+
       <main>
-        {/* Hero Section */}
+        {/* 1ª SEÇÃO: Hero 2 Colunas com Visual Organizado */}
         <section className="hero-section">
-          <div className="container hero-centered">
-            {/* Imagem do Casal Transparente com degradê inferior acima do H1 */}
-            <div className="hero-couple-container">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/casal.webp"
-                alt="Diego e família - Confeiteiros da D&A Doce Amor"
-                className="hero-couple-img"
-              />
+          <div className="container">
+            <div className="hero-grid-2col">
+              {/* Coluna Esquerda: Informações e Ações */}
+              <div className="hero-col-text">
+                <span className="section-tag">
+                  Confeitaria Artesanal em Itaquera
+                </span>
+
+                <h1 className="hero-title">
+                  Bolos artesanais com <span className="highlight">massa molhadinha</span> e recheio de verdade.
+                </h1>
+
+                <p className="hero-desc">
+                  Mini bolos vulcão irresistíveis, caseirinhos para o café, sobremesas geladas e bolos decorados sob medida para sua festa ou empresa. Feitos diariamente com carinho por Diego e Andressa.
+                </p>
+
+                <div className="hero-cta-group">
+                  <a
+                    href={LINKS.whatsappGeral}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-whatsapp btn-lg"
+                  >
+                    <IconWhatsApp size={18} />
+                    <span>Fazer Pedido no WhatsApp</span>
+                  </a>
+                  <a
+                    href="#corporativo"
+                    className="btn btn-primary btn-lg"
+                  >
+                    <IconBuilding size={17} />
+                    <span>Orçamento Corporativo (B2B)</span>
+                  </a>
+                  <a href="#festas" className="btn btn-secondary btn-lg">
+                    <IconPartyCake size={17} />
+                    <span>Bolos de Festa</span>
+                  </a>
+                </div>
+
+                <div className="delivery-badge-bar">
+                  <span className="delivery-badge-label">Peça também no seu app favorito:</span>
+                  <div className="delivery-badge-pills">
+                    <a href={LINKS.ifood} target="_blank" rel="noreferrer" className="delivery-app-chip">
+                      <IconIfood size={16} />
+                      <span>iFood Delivery</span>
+                    </a>
+                    <a href={LINKS.food99} target="_blank" rel="noreferrer" className="delivery-app-chip">
+                      <Icon99Food size={16} />
+                      <span>99Food</span>
+                    </a>
+                    <a href={LINKS.keeta} target="_blank" rel="noreferrer" className="delivery-app-chip">
+                      <IconKeeta size={16} />
+                      <span>Keeta</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Coluna Direita: Card Visual com Destaque de Produtos & Selo Flutuante */}
+              <div className="hero-col-visual">
+                <div className="hero-showcase-claycard">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/3_doces_topo.webp"
+                    alt="Destaques artesanais D&A Doce Amor - Bolo Vulcão Ninho e Brigadeiro, Pão de Mel e Surpresa de Uva"
+                    className="hero-showcase-img"
+                  />
+                  {/* Selo Flutuante na base do card conforme referência */}
+                  <div className="hero-floating-capsule">
+                    <div className="hero-capsule-info">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/logomarca.webp"
+                        alt="Logo D&A Doce Amor"
+                        className="hero-capsule-logo"
+                      />
+                      <div>
+                        <strong>Confeitaria Artesanal</strong>
+                        <span>Vila Carmosina • Itaquera e Guaianazes</span>
+                      </div>
+                    </div>
+                    <div className="hero-capsule-stat">
+                      100%
+                      <small>Artesanal</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <h1 className="hero-title">
-              Bolos artesanais com <span className="highlight">massa molhadinha</span> e recheio de verdade.
-            </h1>
-
-            <p className="hero-desc">
-              Mini bolos vulcão irresistíveis, caseirinhos para o café, sobremesas geladas e bolos decorados sob medida para sua festa. Feitos diariamente com carinho pelo Diego e família.
-            </p>
-
-            <div className="hero-cta-group">
-              <a
-                href={LINKS.whatsappGeral}
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-whatsapp btn-lg"
-              >
-                <IconWhatsApp size={18} />
-                <span>Fazer Pedido no WhatsApp</span>
-              </a>
-              <a href="#festas" className="btn btn-primary btn-lg">
-                <IconPartyCake size={17} />
-                <span>Orçar Bolo de Festa</span>
-              </a>
-              <a href="#cardapio" className="btn btn-secondary btn-lg">
-                <IconCloche size={16} />
-                <span>Ver Cardápio</span>
-              </a>
+            {/* Faixa de Tags de Categorias Rápidas conforme o modelo */}
+            <div className="hero-category-chips">
+              <a href="#catalogo" onClick={() => setActiveTab("mais-pedidos")} className="category-chip">BOLO VULCÃO</a>
+              <a href="#catalogo" onClick={() => setActiveTab("caseirinhos")} className="category-chip">CASEIRINHOS</a>
+              <a href="#catalogo" onClick={() => setActiveTab("geladas")} className="category-chip">SOBREMESAS GELADAS</a>
+              <a href="#festas" className="category-chip">BOLOS DE FESTA</a>
+              <a href="#corporativo" className="category-chip">KITS CORPORATIVOS</a>
+              <a href="#catalogo" onClick={() => setActiveTab("mais-pedidos")} className="category-chip">PÃO DE MEL</a>
             </div>
 
-            <div className="delivery-badge-bar">
-              <span className="delivery-badge-label">Peça também no seu app favorito:</span>
-              <div className="delivery-badge-pills">
-                <a href={LINKS.ifood} target="_blank" rel="noreferrer" className="delivery-app-chip">
-                  <IconIfood size={16} />
-                  <span>iFood Delivery</span>
-                </a>
-                <a href={LINKS.food99} target="_blank" rel="noreferrer" className="delivery-app-chip">
-                  <Icon99Food size={16} />
-                  <span>99Food</span>
-                </a>
-                <a href={LINKS.keeta} target="_blank" rel="noreferrer" className="delivery-app-chip">
-                  <IconKeeta size={16} />
-                  <span>Keeta</span>
-                </a>
+            {/* 4 Cards de Destaques / Métricas Rápidas na base da primeira sessão */}
+            <div className="hero-stats-grid">
+              <div className="hero-stat-card">
+                <span className="stat-card-val">100%</span>
+                <span className="stat-card-label">artesanal</span>
+              </div>
+              <div className="hero-stat-card">
+                <span className="stat-card-val">Massa</span>
+                <span className="stat-card-label">molhadinha</span>
+              </div>
+              <div className="hero-stat-card">
+                <span className="stat-card-val">SP</span>
+                <span className="stat-card-label">Vila Carmosina • Itaquera</span>
+              </div>
+              <div className="hero-stat-card">
+                <span className="stat-card-val">WhatsApp</span>
+                <span className="stat-card-label">Orçamento rápido</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Feature Highlights Bar with Custom SVG Icons */}
+        {/* 2ª SEÇÃO: Atendimento Corporativo & Encomendas para Empresas */}
+        <section className="container" id="corporativo" style={{ padding: "0 20px 60px" }}>
+          <div className="corporate-card">
+            <div>
+              <span className="section-tag" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                <IconBuilding size={14} color="var(--brand-red)" />
+                Atendimento Corporativo & B2B
+              </span>
+              <h2 style={{ fontFamily: "var(--font-playfair-display)", fontSize: "32px", fontWeight: 800, letterSpacing: "-0.015em", marginBottom: "14px", lineHeight: "1.25" }}>
+                Bolos e Marmitas Personalizadas para Empresas
+              </h2>
+              <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.6", marginBottom: "18px" }}>
+                Eleve o padrão das suas reuniões, coffee breaks, comemorações de metas e datas festivas. Fornecemos porções padronizadas e marmitinhas individuais personalizadas com a marca da sua empresa.
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "10px", marginBottom: "26px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "var(--text-main)" }}>
+                  <IconSparkles size={16} color="var(--brand-red)" />
+                  <span><strong>Cases Reais:</strong> Parcerias de sucesso com a <strong>IZZO Instrumentos Musicais</strong> e <strong>DIMEN Medicina Nuclear</strong> (comemoração de 45 anos).</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "var(--text-main)" }}>
+                  <IconScale size={16} color="var(--brand-red)" />
+                  <span><strong>Praticidade Total:</strong> Marmitas individuais e pães de mel personalizados — zero louça e zero bagunça no escritório.</span>
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "14px", color: "var(--text-main)" }}>
+                  <IconChefHat size={16} color="var(--brand-red)" />
+                  <span><strong>Higiene & Confiança:</strong> Produção artesanal com Diego e Andressa uniformizados e rigor sanitário.</span>
+                </div>
+              </div>
+
+              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                <a
+                  href={LINKS.whatsappEmpresa}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary btn-lg"
+                >
+                  <IconBuilding size={17} />
+                  <span>Solicitar Orçamento para sua Empresa</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Corporate Real Proof Gallery */}
+            <div className="corporate-gallery-grid">
+              <div className="corporate-photo-card">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/corporativo/marmitas-personalizadas-izzo.webp"
+                  alt="Marmitas individuais de bolo personalizadas para Izzo Instrumentos Musicais"
+                  className="corporate-photo-img"
+                />
+                <div className="corporate-photo-label">
+                  Marmitas personalizadas • IZZO
+                </div>
+              </div>
+
+              <div className="corporate-photo-card">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/corporativo/dimen-bolo-e-paes-de-mel.webp"
+                  alt="Bolo e pães de mel personalizados para evento Dimen Medicina Nuclear"
+                  className="corporate-photo-img"
+                />
+                <div className="corporate-photo-label">
+                  Bolo & Pães de Mel • DIMEN
+                </div>
+              </div>
+
+              <div className="corporate-photo-card">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/corporativo/dimen-tag-personalizada.webp"
+                  alt="Tag personalizada com logotipo Dimen Medicina Nuclear"
+                  className="corporate-photo-img"
+                />
+                <div className="corporate-photo-label">
+                  Brinde com tag e laço • DIMEN
+                </div>
+              </div>
+
+              <div className="corporate-photo-card">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/corporativo/diego-andressa-izzo-mesa.webp"
+                  alt="Diego e Andressa com produção de encomendas corporativas"
+                  className="corporate-photo-img"
+                />
+                <div className="corporate-photo-label">
+                  Diego & Andressa (D&A)
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 3ª SEÇÃO: Feature Highlights Bar with Custom SVG Icons */}
         <section className="features-strip">
           <div className="container">
             <div className="features-grid">
@@ -386,7 +681,7 @@ export default function Home() {
                       </div>
 
                       <a
-                        href={waLink(`Olá, Diego! Quero pedir o *${p.title}* que vi no site 😋`)}
+                        href={waLink(`Olá, Diego e Andressa! Quero pedir o *${p.title}* que vi no site 😋`)}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-whatsapp btn-sm"
@@ -461,7 +756,7 @@ export default function Home() {
                       className="btn btn-burgundy btn-lg"
                     >
                       <IconPartyCake size={18} />
-                      <span>Orçar Bolo de Festa com Diego</span>
+                      <span>Orçar Bolo de Festa com Diego e Andressa</span>
                     </a>
                   </div>
                 </div>
@@ -510,7 +805,7 @@ export default function Home() {
 
                   <a
                     href={waLink(
-                      `Olá, Diego! Quero orçar um bolo de festa para cerca de *${guests} convidados* (~${calcWeight} kg) que calculei no site 🎂`
+                      `Olá, Diego e Andressa! Quero orçar um bolo de festa para cerca de *${guests} convidados* (~${calcWeight} kg) que calculei no site 🎂`
                     )}
                     target="_blank"
                     rel="noreferrer"
@@ -526,46 +821,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Corporate Section */}
-        <section className="container" id="corporativo" style={{ padding: "32px 32px 72px" }}>
-          <div
-            style={{
-              background: "var(--bg-surface)",
-              border: "1px solid var(--border-light)",
-              borderRadius: "var(--radius-card)",
-              padding: "44px 38px",
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: "32px",
-              boxShadow: "var(--shadow-card)"
-            }}
-          >
-            <div style={{ maxWidth: "620px" }}>
-              <span className="section-tag" style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
-                <IconBuilding size={14} color="var(--brand-red)" />
-                Eventos & Parcerias B2B
-              </span>
-              <h3 style={{ fontFamily: "var(--font-primary)", fontSize: "32px", fontWeight: "normal", marginBottom: "12px" }}>
-                Bolos e Kits Corporativos para sua Empresa
-              </h3>
-              <p style={{ color: "var(--text-muted)", fontSize: "15px", lineHeight: "1.6" }}>
-                Já fornecemos fatias padronizadas e caixas individuais para reuniões, treinamentos e confraternizações em Itaquera e Guaianazes. Atendimento pontual com facilidade para empresas.
-              </p>
-            </div>
-            <a
-              href={LINKS.whatsappEmpresa}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-primary btn-lg"
-            >
-              <IconBuilding size={17} />
-              <span>Solicitar Orçamento CNPJ</span>
-            </a>
-          </div>
-        </section>
-
         {/* Story / About Section using casal.webp & logo elements */}
         <section className="story-section" id="historia">
           <div className="container story-grid">
@@ -573,7 +828,7 @@ export default function Home() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/casal.webp"
-                alt="Diego e Esposa - Fundadores D&A Doce Amor"
+                alt="Diego e Andressa - Fundadores D&A Doce Amor"
               />
             </div>
 
@@ -584,13 +839,13 @@ export default function Home() {
               </span>
               <h2>Feito com amor e alma de família.</h2>
               <p>
-                A D&A Doce Amor nasceu do carinho e da dedicação do Diego e sua esposa em produzir bolos e sobremesas que transmitissem o mesmo sabor e aconchego das receitas feitas em casa.
+                A D&A Doce Amor nasceu do carinho e da dedicação de Diego e Andressa em produzir bolos e sobremesas que transmitissem o mesmo sabor e aconchego das receitas feitas em casa.
               </p>
               <p>
                 Começamos atendendo nossos vizinhos de condomínio na Vila Carmosina e, rapidamente, o boca a boca conquistou Itaquera e Guaianazes. Nossa prioridade sempre foi a mesma: massa fofinha e bem molhadinha, recheios generosos e equilíbrio no açúcar para que você e sua família saboreiem com prazer do primeiro ao último pedaço.
               </p>
               <p>
-                Cada bolo é preparado com ingredientes nobres e higiene rigorosa. Para nós, confeitaria não é apenas uma receita: é levar alegria para o seu café da tarde e momentos marcantes para a sua celebração.
+                Cada bolo é preparado com ingredientes nobres e higiene rigorosa. Para nós, confeitaria não é apenas uma receita: é levar alegria para o seu café da tarde, momentos marcantes para celebrações em família e eventos corporativos memoráveis.
               </p>
 
               <div style={{ marginTop: "24px" }}>
@@ -601,7 +856,7 @@ export default function Home() {
                   className="btn btn-whatsapp"
                 >
                   <IconWhatsApp size={17} />
-                  <span>Falar com o Diego no WhatsApp</span>
+                  <span>Falar com Diego e Andressa no WhatsApp</span>
                 </a>
               </div>
             </div>
@@ -696,7 +951,7 @@ export default function Home() {
                   <span className="faq-icon">+</span>
                 </summary>
                 <div className="faq-content">
-                  Sim! Você pode retirar diretamente com o Diego no nosso endereço na Vila Carmosina (Itaquera - São Paulo/SP). Basta combinar o horário certinho pelo WhatsApp.
+                  Sim! Você pode retirar diretamente com Diego e Andressa no nosso endereço na Vila Carmosina (Itaquera - São Paulo/SP). Basta combinar o horário certinho pelo WhatsApp.
                 </div>
               </details>
 
@@ -757,7 +1012,7 @@ export default function Home() {
                       <IconChefHat size={16} />
                     </span>
                     <div>
-                      <strong>Atendimento Pessoal:</strong> Diego e esposa
+                      <strong>Atendimento Pessoal:</strong> Diego e Andressa
                     </div>
                   </div>
                 </div>
@@ -872,6 +1127,12 @@ export default function Home() {
                   <a href={LINKS.whatsappGeral} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
                     <IconWhatsApp size={16} color="#25d366" />
                     <span>WhatsApp: (11) 99236-0531</span>
+                  </a>
+                </li>
+                <li>
+                  <a href={LINKS.instagram} target="_blank" rel="noreferrer" style={{ display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                    <IconInstagram size={16} color="#E1306C" />
+                    <span>Instagram: @deadoceamor</span>
                   </a>
                 </li>
                 <li>
