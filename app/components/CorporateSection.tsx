@@ -8,8 +8,9 @@ import { LINKS } from "../data";
 
 export default function CorporateSection() {
   return (
-    <section className="container" id="corporativo" style={{ padding: "0 20px 60px" }}>
-      <div className="corporate-card">
+    <section className="corporate-section" id="corporativo">
+      <div className="container">
+        <div className="corporate-card">
         <div>
           <h2 style={{ fontFamily: "var(--font-playfair-display)", fontSize: "32px", fontWeight: 800, letterSpacing: "-0.015em", marginBottom: "14px", lineHeight: "1.25" }}>
             Atendemos eventos corporativos
@@ -88,6 +89,7 @@ export default function CorporateSection() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }

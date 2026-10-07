@@ -1,22 +1,12 @@
-"use client";
-
-import { useState } from "react";
 import {
   IconCalendar,
   IconSparkles,
   IconScooter,
-  IconPartyCake,
-  IconUsers,
-  IconWhatsApp
+  IconPartyCake
 } from "./Icons";
-import { LINKS, waLink } from "../data";
+import { LINKS } from "../data";
 
 export default function PartySpotlight() {
-  const [guests, setGuests] = useState<number>(20);
-
-  // Approximate cake weight calculation (approx 110g per guest)
-  const calcWeight = (guests * 0.11).toFixed(1);
-
   return (
     <section className="party-spotlight-section" id="festas">
       <div className="container">
@@ -62,6 +52,18 @@ export default function PartySpotlight() {
                     <p>Retire com facilidade em Itaquera ou agende entrega protegida para Itaquera e região.</p>
                   </div>
                 </div>
+              </div>
+
+              <div style={{ marginTop: "24px" }}>
+                <a
+                  href={LINKS.whatsappFesta}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-burgundy btn-lg"
+                >
+                  <IconPartyCake size={18} />
+                  <span>Orçar Bolo de Festa no WhatsApp</span>
+                </a>
               </div>
             </div>
           </div>

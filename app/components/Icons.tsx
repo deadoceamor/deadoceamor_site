@@ -440,7 +440,7 @@ export function IconSparkles({ size = 20, color = "currentColor", ...props }: Ic
   );
 }
 
-// 20. Users / Guests Icon (Calculadora de Festa)
+// 20. Users / Guests Icon
 export function IconUsers({ size = 20, color = "currentColor", ...props }: IconProps) {
   return (
     <svg
@@ -616,6 +616,27 @@ export function IconClose({ size = 24, color = "currentColor", ...props }: IconP
     >
       <line x1="18" y1="6" x2="6" y2="18" />
       <line x1="6" y1="6" x2="18" y2="18" />
+    </svg>
+  );
+}
+
+// 28. Chevron Down Icon (Indicador de rolagem)
+export function IconChevronDown({ size = 20, color = "currentColor", ...props }: IconProps) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      role="img"
+      aria-label="Rolar para baixo"
+      {...props}
+    >
+      <polyline points="6 9 12 15 18 9" />
     </svg>
   );
 }

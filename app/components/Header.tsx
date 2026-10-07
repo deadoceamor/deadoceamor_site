@@ -7,7 +7,6 @@ import {
   IconBuilding,
   IconCloche,
   IconPartyCake,
-  IconUsers,
   IconHeart,
   IconStar,
   IconNotice,
@@ -39,7 +38,6 @@ export default function Header() {
             <a href="#corporativo" style={{ fontWeight: 700, color: "var(--brand-red)" }}>Corporativo B2B</a>
             <a href="#cardapio">Cardápio</a>
             <a href="#festas">Bolos de Festa</a>
-            <a href="#calculadora">Calculadora</a>
             <a href="#historia">Quem Somos</a>
             <a href="#avaliacoes">Avaliações</a>
             <a href="#faq">Dúvidas</a>
@@ -108,14 +106,6 @@ export default function Header() {
           >
             <IconPartyCake size={18} />
             <span>Bolos de Festa</span>
-          </a>
-          <a
-            href="#calculadora"
-            className="drawer-link"
-            onClick={() => setIsDrawerOpen(false)}
-          >
-            <IconUsers size={18} />
-            <span>Calculadora de Festa</span>
           </a>
           <a
             href="#historia"

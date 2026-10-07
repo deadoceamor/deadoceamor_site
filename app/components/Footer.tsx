@@ -36,7 +36,6 @@ export default function Footer() {
             <ul className="footer-links">
               <li><a href="#cardapio">Cardápio da Semana</a></li>
               <li><a href="#festas">Bolos de Festa & Aniversário</a></li>
-              <li><a href="#calculadora">Calculadora de Convidados</a></li>
               <li><a href="#corporativo">Eventos Corporativos</a></li>
               <li><a href="#historia">Nossa História</a></li>
               <li><a href="#faq">Dúvidas Frequentes</a></li>

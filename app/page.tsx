@@ -13,6 +13,7 @@ import FaqSection from "./components/FaqSection";
 import LocationSection from "./components/LocationSection";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import MobileScrollIndicator from "./components/MobileScrollIndicator";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("todos");
@@ -35,7 +36,7 @@ export default function Home() {
         {/* Cardápio da semana com abas de filtro e cards dos produtos */}
         <Catalog activeTab={activeTab} onTabChange={setActiveTab} />
 
-        {/* Bolos de festa sob encomenda + Calculadora de convidados */}
+        {/* Bolos de festa sob encomenda */}
         <PartySpotlight />
 
         {/* Quem Somos: História do casal Diego e Andressa */}
@@ -56,6 +57,9 @@ export default function Home() {
 
       {/* Botão flutuante para chamar direto no WhatsApp */}
       <FloatingWhatsApp />
+
+      {/* Seta flutuante animada e discreta para guiar rolagem no mobile */}
+      <MobileScrollIndicator />
     </>
   );
 }
