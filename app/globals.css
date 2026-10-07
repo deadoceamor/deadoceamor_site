@@ -766,7 +766,7 @@ button {
 @media (max-width: 990px) {
   .hero-grid-2col {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 12px;
     text-align: center;
   }
 
@@ -801,12 +801,11 @@ button {
 .hero-title {
   font-family: var(--font-playfair-display);
   font-size: clamp(20px, 4.2vw, 58px);
-  font-weight: 700;
+  font-weight: 900;
   -webkit-text-stroke: 0;
   line-height: 1;
   letter-spacing: -0.05em;
   color: var(--text-main);
-  margin: 0 0 10px;
   max-width: 640px;
   position: relative;
   z-index: 3;
@@ -814,6 +813,7 @@ button {
 
 @media (max-width: 990px) {
   .hero-title {
+    font-size: 32px;
     margin: 0 auto 16px;
   }
 }
@@ -822,7 +822,6 @@ button {
   .hero-title {
     font-size: clamp(28px, 8vw, 38px);
     margin: 0 auto 14px;
-    line-height: 1.18;
     letter-spacing: -0.01em;
   }
 }
@@ -836,11 +835,11 @@ button {
 
 .hero-desc {
   font-size: clamp(15px, 1.8vw, 17px);
-  line-height: 1.68;
-  color: var(--text-muted);
-  margin: 0 0 28px;
+  line-height: 1.5;
+  color: var(--text-main);
+  margin: 24px 0 28px;
   max-width: 580px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 @media (max-width: 990px) {
@@ -2029,84 +2028,103 @@ details[open] .faq-icon {
   box-shadow: 0 4px 10px rgba(30, 185, 86, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.25);
 }
 
-/* Mobile Floating Scroll Indicator - Levemente Retangular com Raio e Relevo Polimórfico */
+/* Floating Scroll Indicator - Levemente Retangular com Raio e Relevo Polimórfico (Desktop & Mobile) */
 .mobile-scroll-indicator {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82px;
+  height: 50px;
+  border-radius: var(--radius-sm, 16px);
+  background: linear-gradient(145deg, #ffffff 0%, #f9f5f0 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 22px -3px rgba(185, 160, 145, 0.32),
+    0 4px 10px -2px rgba(185, 160, 145, 0.18),
+    inset 2.5px 2.5px 5px rgba(255, 255, 255, 0.98),
+    inset -2.5px -2.5px 6px rgba(195, 175, 160, 0.24);
+  cursor: pointer;
+  z-index: 95;
+  padding: 6px 12px 5px;
+  color: var(--brand-red, #df1d2c);
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+  animation: mobileScrollBounce 2.4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-scroll-text {
+  font-size: 11.5px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.2px;
+  color: var(--text-main, #161413);
+  white-space: nowrap;
+}
+
+.mobile-scroll-indicator.visible {
+  opacity: 0.96;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-scroll-indicator.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  animation: none;
+  transform: translateX(-50%) translateY(16px) scale(0.85);
+}
+
+.mobile-scroll-indicator:hover {
+  animation-play-state: paused;
+  transform: translateX(-50%) translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 28px -3px rgba(185, 160, 145, 0.38),
+    0 6px 14px -2px rgba(185, 160, 145, 0.2),
+    inset 2.5px 2.5px 5px rgba(255, 255, 255, 0.98),
+    inset -2.5px -2.5px 6px rgba(195, 175, 160, 0.26);
+  opacity: 1;
+}
+
+.mobile-scroll-indicator:active {
+  transform: translateX(-50%) scale(0.93) translateY(2px);
+  box-shadow: 0 4px 10px rgba(185, 160, 145, 0.22),
+    inset 3px 3px 6px rgba(195, 175, 160, 0.35),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.85);
+  opacity: 1;
+}
+
+@keyframes mobileScrollBounce {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
 }
 
 @media (max-width: 768px) {
   .mobile-scroll-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     width: 78px;
     height: 48px;
-    border-radius: var(--radius-sm, 16px);
-    background: linear-gradient(145deg, #ffffff 0%, #f9f5f0 100%);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 2px solid rgba(255, 255, 255, 0.95);
-    box-shadow: 0 10px 22px -3px rgba(185, 160, 145, 0.32), 
-                0 4px 10px -2px rgba(185, 160, 145, 0.18), 
-                inset 2.5px 2.5px 5px rgba(255, 255, 255, 0.98), 
-                inset -2.5px -2.5px 6px rgba(195, 175, 160, 0.24);
-    cursor: pointer;
-    z-index: 95;
+    bottom: 20px;
     padding: 6px 10px 5px;
-    color: var(--brand-red, #df1d2c);
-    touch-action: manipulation;
-    user-select: none;
-    -webkit-user-select: none;
-    outline: none;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
-    animation: mobileScrollBounce 2.4s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-    -webkit-tap-highlight-color: transparent;
   }
 
   .mobile-scroll-text {
     font-size: 11px;
-    font-weight: 800;
-    line-height: 1;
-    letter-spacing: -0.2px;
-    color: var(--text-main, #161413);
-    white-space: nowrap;
-  }
-
-  .mobile-scroll-indicator.visible {
-    opacity: 0.96;
-    visibility: visible;
-    pointer-events: auto;
-  }
-
-  .mobile-scroll-indicator.hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    animation: none;
-    transform: translateX(-50%) translateY(16px) scale(0.85);
-  }
-
-  .mobile-scroll-indicator:active {
-    transform: translateX(-50%) scale(0.93) translateY(2px);
-    box-shadow: 0 4px 10px rgba(185, 160, 145, 0.22), 
-                inset 3px 3px 6px rgba(195, 175, 160, 0.35), 
-                inset -2px -2px 5px rgba(255, 255, 255, 0.85);
-    opacity: 1;
-  }
-
-  @keyframes mobileScrollBounce {
-    0%, 100% {
-      transform: translateX(-50%) translateY(0);
-    }
-    50% {
-      transform: translateX(-50%) translateY(6px);
-    }
   }
 }
 
