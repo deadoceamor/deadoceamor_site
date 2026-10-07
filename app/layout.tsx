@@ -26,7 +26,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "D&A Doce Amor — Bolos Artesanais e Sobremesas | Vila Carmosina, Itaquera",
   description:
-    "Bolos vulcão, caseirinhos para o café, sobremesas geladas e bolos decorados para festas em Itaquera e Guaianazes. Peça pelo WhatsApp ou nos aplicativos de delivery.",
+    "Bolos vulcão, caseirinhos para o café e bolos decorados para festas em Itaquera e região. Peça pelo WhatsApp ou nos aplicativos de delivery.",
   openGraph: {
     title: "D&A Doce Amor — Bolos Artesanais em Itaquera",
     description:
