@@ -22,16 +22,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Announcement Bar */}
-      <div className="topbar">
-        <div className="container topbar-content">
-          <div className="topbar-badge">
-            <span className="topbar-dot"></span>
-            <span>Atendimento aberto hoje • Vila Carmosina, Itaquera e região</span>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header */}
       <header className="header">
         <div className="container header-inner">
