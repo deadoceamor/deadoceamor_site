@@ -55,18 +55,6 @@ export default function CorporateSection() {
           <div className="corporate-photo-card">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/corporativo/marmitas-personalizadas-izzo.webp"
-              alt="Fatias individuais de bolo embaladas e personalizadas para a IZZO"
-              className="corporate-photo-img"
-            />
-            <div className="corporate-photo-label">
-              Fatias Individuais com Logotipo • IZZO
-            </div>
-          </div>
-
-          <div className="corporate-photo-card">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
               src="/corporativo/fatias-abertas-recheio.webp"
               alt="Fatias abertas mostrando as camadas generosas de massa molhadinha e recheio"
               className="corporate-photo-img"

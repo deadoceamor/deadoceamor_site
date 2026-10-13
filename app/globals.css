@@ -1213,9 +1213,13 @@ button {
 
 .corporate-gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   width: 100%;
+}
+
+.corporate-photo-card:first-child {
+  grid-column: 1 / -1;
 }
 
 .corporate-photo-card {
