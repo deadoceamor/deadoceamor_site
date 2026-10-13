@@ -39,7 +39,7 @@ export default function PartySpotlight() {
                   </div>
                   <div className="step-text">
                     <h4>Escolha Massa, Recheio e Decoração</h4>
-                    <p>Brigadeiro gourmet, Ninho com morangos frescos, chocolate belga ou doce de leite artesanal.</p>
+                    <p>Brigadeiro feito com 50% cacau, brigadeiro de Ninho cremoso, recheio de beijinho e frutas frescas como morangos ou uvas verdes.</p>
                   </div>
                 </div>
 

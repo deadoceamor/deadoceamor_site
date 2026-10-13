@@ -43,12 +43,36 @@ export default function CorporateSection() {
           <div className="corporate-photo-card">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/corporativo/marmitas-personalizadas-izzo.webp"
-              alt="Fatias individuais de bolo embaladas e personalizadas para a Izzo"
+              src="/corporativo/diego-andressa-izzo-mesa.webp"
+              alt="Diego e Andressa com produção de encomendas corporativas para a IZZO"
               className="corporate-photo-img"
             />
             <div className="corporate-photo-label">
-              Fatias Individuais • IZZO
+              Entrega de 160 fatias • IZZO
+            </div>
+          </div>
+
+          <div className="corporate-photo-card">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/corporativo/marmitas-personalizadas-izzo.webp"
+              alt="Fatias individuais de bolo embaladas e personalizadas para a IZZO"
+              className="corporate-photo-img"
+            />
+            <div className="corporate-photo-label">
+              Fatias Individuais com Logotipo • IZZO
+            </div>
+          </div>
+
+          <div className="corporate-photo-card">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/corporativo/fatias-abertas-recheio.webp"
+              alt="Fatias abertas mostrando as camadas generosas de massa molhadinha e recheio"
+              className="corporate-photo-img"
+            />
+            <div className="corporate-photo-label">
+              Massa Molhadinha e Recheio Farto
             </div>
           </div>
 
@@ -60,31 +84,7 @@ export default function CorporateSection() {
               className="corporate-photo-img"
             />
             <div className="corporate-photo-label">
-              Bolo & Fatias Gourmet • DIMEN
-            </div>
-          </div>
-
-          <div className="corporate-photo-card">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/corporativo/dimen-tag-personalizada.webp"
-              alt="Tag personalizada com logotipo Dimen Medicina Nuclear"
-              className="corporate-photo-img"
-            />
-            <div className="corporate-photo-label">
-              Brinde com tag e laço • DIMEN
-            </div>
-          </div>
-
-          <div className="corporate-photo-card">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/corporativo/diego-andressa-izzo-mesa.webp"
-              alt="Diego e Andressa com produção de encomendas corporativas"
-              className="corporate-photo-img"
-            />
-            <div className="corporate-photo-label">
-              Entrega de 200 fatias na IZZO
+              Bolo Comemorativo e Pães de Mel • DIMEN
             </div>
           </div>
         </div>

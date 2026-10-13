@@ -20,7 +20,7 @@ export const LINKS = {
 
 export interface Product {
   id: string;
-  category: "festas" | "vulcao" | "caseirinhos" | "corporativo";
+  category: "delivery" | "festas" | "corporativo";
   badge: string;
   title: string;
   desc: string;
@@ -31,21 +31,30 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     id: "vulcao-ninho",
-    category: "vulcao",
-    badge: "O Mais Pedido da Semana",
+    category: "delivery",
+    badge: "O Mais Pedido no Delivery",
     title: "Mini Bolo Vulcão de Brigadeiro com Ninho",
-    desc: "Massa molhadinha de cacau com uma verdadeira erupção cremosa de brigadeiro gourmet e Ninho aveludado.",
+    desc: "Massa molhadinha de cacau com uma verdadeira erupção cremosa de brigadeiro com 50% cacau e brigadeiro de Ninho aveludado.",
     priceNote: "A partir de R$ 15",
     image: "/products/prod-vulcao.jpg"
   },
   {
     id: "caseirinho-choc-ninho",
-    category: "caseirinhos",
+    category: "delivery",
     badge: "Perfeito para o Café",
     title: "Bolo Caseirinho Chocolate + Ninho",
-    desc: "Aquele bolo fofinho e aconchegante, com cobertura e recheio generosos. Feito para reunir quem você ama.",
+    desc: "Aquele bolo fofinho e aconchegante para pronta-entrega, com cobertura e recheio generosos. Feito para reunir quem você ama.",
     priceNote: "A partir de R$ 15",
     image: "/products/prod-caseirinho.jpg"
+  },
+  {
+    id: "caseiro-cenoura",
+    category: "delivery",
+    badge: "Clássico Irresistível",
+    title: "Caseirinho Especial com Brigadeiro",
+    desc: "Massa leve, fresquinha e macia com calda generosa de brigadeiro artesanal derretendo por cima.",
+    priceNote: "A partir de R$ 15",
+    image: "/products/prod-caseiro-cafe.jpg"
   },
   {
     id: "bolo-festa-aniversario",
@@ -61,25 +70,16 @@ export const PRODUCTS: Product[] = [
     category: "festas",
     badge: "Exclusivo & Personalizado",
     title: "Bolos para Celebrações Especiais",
-    desc: "Decoração personalizada ao seu gosto. Combinações clássicas como brigadeiro artesanal com Ninho e frutas.",
+    desc: "Decoração personalizada ao seu gosto. Combinações clássicas como brigadeiro 50% cacau, Ninho, beijinho, morangos e uvas verdes.",
     priceNote: "Orçamento sob medida",
     image: "/products/prod-festa-decorado.jpg"
-  },
-  {
-    id: "caseiro-cenoura",
-    category: "caseirinhos",
-    badge: "Clássico Irresistível",
-    title: "Caseirinho Especial com Brigadeiro",
-    desc: "Massa leve, fresquinha e macia com calda generosa de chocolate ao leite artesanal derretendo por cima.",
-    priceNote: "A partir de R$ 15",
-    image: "/products/prod-caseiro-cafe.jpg"
   },
   {
     id: "corporativo-eventos",
     category: "corporativo",
     badge: "Atendimento B2B / CNPJ",
     title: "Kits e Fatias para Eventos Corporativos",
-    desc: "Fatias padronizadas e embalagens individuais para reuniões, coffee breaks e datas comemorativas da sua empresa.",
+    desc: "Fatias padronizadas em marmitinhas com rótulo personalizado para reuniões, coffee breaks e ações comemorativas da sua empresa.",
     priceNote: "Condições especiais",
     image: "/products/prod-corporativo.jpg"
   }

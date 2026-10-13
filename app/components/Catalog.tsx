@@ -37,14 +37,14 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
+        {/* Category Filter Tabs - 3 Focos (Delivery/Todos, Bolos de Festa, Corporativo) */}
         <div className="catalog-tabs">
           <button
-            className={`catalog-tab ${currentTab === "todos" ? "active" : ""}`}
+            className={`catalog-tab ${currentTab === "todos" || currentTab === "delivery" ? "active" : ""}`}
             onClick={() => setTab("todos")}
           >
             <IconCloche size={14} />
-            <span>Todos os Doces</span>
+            <span>Todos os Doces / Delivery</span>
           </button>
           <button
             className={`catalog-tab ${currentTab === "festas" ? "active" : ""}`}
@@ -52,20 +52,6 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
           >
             <IconPartyCake size={14} />
             <span>Bolos de Festa</span>
-          </button>
-          <button
-            className={`catalog-tab ${currentTab === "vulcao" ? "active" : ""}`}
-            onClick={() => setTab("vulcao")}
-          >
-            <IconFlame size={14} color={currentTab === "vulcao" ? "#ffffff" : "var(--brand-red)"} />
-            <span>Bolo Vulcão</span>
-          </button>
-          <button
-            className={`catalog-tab ${currentTab === "caseirinhos" ? "active" : ""}`}
-            onClick={() => setTab("caseirinhos")}
-          >
-            <IconCoffee size={14} />
-            <span>Caseirinhos</span>
           </button>
           <button
             className={`catalog-tab ${currentTab === "corporativo" ? "active" : ""}`}
