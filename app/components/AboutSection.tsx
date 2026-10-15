@@ -8,7 +8,7 @@ export default function AboutSection() {
         <div className="story-photo-frame">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/casal.webp"
+            src="/nova_casal.webp"
             alt="Diego e Andressa - Fundadores D&A Doce Amor"
           />
         </div>
