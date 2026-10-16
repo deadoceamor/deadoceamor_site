@@ -13,7 +13,6 @@ import FaqSection from "./components/FaqSection";
 import LocationSection from "./components/LocationSection";
 import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
-import MobileScrollIndicator from "./components/MobileScrollIndicator";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>("todos");
@@ -58,8 +57,6 @@ export default function Home() {
       {/* Botão flutuante para chamar direto no WhatsApp */}
       <FloatingWhatsApp />
 
-      {/* Seta flutuante animada e discreta para guiar rolagem no mobile */}
-      <MobileScrollIndicator />
     </>
   );
 }

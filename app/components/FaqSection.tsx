@@ -62,11 +62,11 @@ export default function FaqSection() {
 
           <details className="faq-item">
             <summary className="faq-summary">
-              <span>Existe valor mínimo para pedido?</span>
+              <span>Como funcionam os valores dos bolos e sobremesas?</span>
               <span className="faq-icon">+</span>
             </summary>
             <div className="faq-content">
-              Sim, nosso pedido mínimo para encomenda é de R$ 11. Temos opções de mini bolos e caseirinhos individuais a partir de R$ 15.
+              Trabalhamos com valores sob consulta. Para itens de pronta-entrega (delivery), você pode consultar o cardápio e preços do dia diretamente nos aplicativos parceiros (iFood, 99Food e Keeta). Para encomendas de bolos de festa e eventos corporativos, passamos orçamentos sob medida pelo WhatsApp de acordo com o tamanho, sabor e decoração.
             </div>
           </details>
         </div>

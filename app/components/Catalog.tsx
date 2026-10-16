@@ -3,13 +3,16 @@
 import { useState } from "react";
 import {
   IconCloche,
-  IconFlame,
   IconPartyCake,
-  IconCoffee,
   IconBuilding,
-  IconWhatsApp
+  IconWhatsApp,
+  IconScooter,
+  IconChevronDown,
+  IconIfood,
+  Icon99Food,
+  IconKeeta
 } from "./Icons";
-import { PRODUCTS, waLink } from "../data";
+import { PRODUCTS, LINKS, waLink } from "../data";
 
 interface CatalogProps {
   activeTab?: string;
@@ -18,6 +21,7 @@ interface CatalogProps {
 
 export default function Catalog({ activeTab: externalTab, onTabChange }: CatalogProps) {
   const [internalTab, setInternalTab] = useState<string>("todos");
+  const [expandedDeliveryId, setExpandedDeliveryId] = useState<string | null>(null);
 
   const currentTab = externalTab !== undefined ? externalTab : internalTab;
   const setTab = onTabChange || setInternalTab;
@@ -26,6 +30,10 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
     currentTab === "todos"
       ? PRODUCTS
       : PRODUCTS.filter((p) => p.category === currentTab);
+
+  const toggleDeliveryOptions = (id: string) => {
+    setExpandedDeliveryId((prev) => (prev === id ? null : id));
+  };
 
   return (
     <section className="catalog-section" id="cardapio">
@@ -64,37 +72,113 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
 
         {/* Product Cards Grid */}
         <div className="products-grid">
-          {filteredProducts.map((p) => (
-            <div className="product-card" key={p.id}>
-              <div className="product-image-box">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={p.image} alt={p.title} loading="lazy" />
-                <span className="product-card-badge">{p.badge}</span>
-              </div>
+          {filteredProducts.map((p) => {
+            const isDelivery = p.category === "delivery";
+            const isExpanded = isDelivery && expandedDeliveryId === p.id;
 
-              <div className="product-content">
-                <h3 className="product-title">{p.title}</h3>
-                <p className="product-desc">{p.desc}</p>
+            return (
+              <div className="product-card" key={p.id}>
+                <div className="product-image-box">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={p.image} alt={p.title} loading="lazy" />
+                  <span className="product-card-badge">{p.badge}</span>
+                </div>
 
-                <div className="product-footer">
-                  <div className="product-price-info">
-                    <span className="product-price-label">Disponibilidade</span>
-                    <span className="product-price-val">{p.priceNote}</span>
+                <div className="product-content">
+                  <h3 className="product-title">{p.title}</h3>
+                  <p className="product-desc">{p.desc}</p>
+
+                  <div className="product-footer">
+                    <div className="product-price-info">
+                      <span className="product-price-label">Valor</span>
+                      <span className="product-price-val">{p.priceNote}</span>
+                    </div>
+
+                    {isDelivery ? (
+                      <button
+                        type="button"
+                        onClick={() => toggleDeliveryOptions(p.id)}
+                        className={`btn btn-delivery-toggle btn-sm ${isExpanded ? "active" : ""}`}
+                        aria-expanded={isExpanded}
+                        title="Ver opções de entrega nos aplicativos"
+                      >
+                        <IconScooter size={15} />
+                        <span>Pedir no Delivery</span>
+                        <IconChevronDown
+                          size={13}
+                          style={{
+                            transition: "transform 0.25s ease",
+                            transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
+                            marginLeft: "2px"
+                          }}
+                        />
+                      </button>
+                    ) : p.category === "festas" ? (
+                      <a
+                        href={waLink(`Olá, Diego e Andressa! Quero encomendar o bolo de festa: *${p.title}* que vi no site 🎂`)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-whatsapp btn-sm"
+                        title="Fazer pedido pelo WhatsApp"
+                      >
+                        <IconWhatsApp size={14} />
+                        <span>Pedir no Whats</span>
+                      </a>
+                    ) : (
+                      <a
+                        href={waLink(`Olá, Diego e Andressa! Gostaria de um orçamento corporativo para: *${p.title}* que vi no site ☕`)}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-whatsapp btn-sm"
+                        title="Solicitar orçamento pelo WhatsApp"
+                      >
+                        <IconWhatsApp size={14} />
+                        <span>Pedir no Whats</span>
+                      </a>
+                    )}
                   </div>
 
-                  <a
-                    href={waLink(`Olá, Diego e Andressa! Quero pedir o *${p.title}* que vi no site 😋`)}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-whatsapp btn-sm"
-                  >
-                    <IconWhatsApp size={14} />
-                    <span>Pedir no Whats</span>
-                  </a>
+                  {/* Drawer expansível com as 3 opções de delivery direto */}
+                  {isDelivery && isExpanded && (
+                    <div className="delivery-expanded-drawer">
+                      <span className="delivery-expanded-title">
+                        Escolha seu app favorito:
+                      </span>
+                      <div className="delivery-expanded-buttons">
+                        <a
+                          href={LINKS.ifood}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="delivery-pill-app ifood-pill"
+                        >
+                          <IconIfood size={15} />
+                          <span>iFood</span>
+                        </a>
+                        <a
+                          href={LINKS.food99}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="delivery-pill-app food99-pill"
+                        >
+                          <Icon99Food size={15} />
+                          <span>99Food</span>
+                        </a>
+                        <a
+                          href={LINKS.keeta}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="delivery-pill-app keeta-pill"
+                        >
+                          <IconKeeta size={15} />
+                          <span>Keeta</span>
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

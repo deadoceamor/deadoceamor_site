@@ -35,7 +35,7 @@ export const PRODUCTS: Product[] = [
     badge: "O Mais Pedido no Delivery",
     title: "Mini Bolo Vulcão de Brigadeiro com Ninho",
     desc: "Massa molhadinha de cacau com uma verdadeira erupção cremosa de brigadeiro com 50% cacau e brigadeiro de Ninho aveludado.",
-    priceNote: "A partir de R$ 15",
+    priceNote: "Sob consulta",
     image: "/products/prod-vulcao.jpg"
   },
   {
@@ -44,7 +44,7 @@ export const PRODUCTS: Product[] = [
     badge: "Perfeito para o Café",
     title: "Bolo Caseirinho Chocolate + Ninho",
     desc: "Aquele bolo fofinho e aconchegante para pronta-entrega, com cobertura e recheio generosos. Feito para reunir quem você ama.",
-    priceNote: "A partir de R$ 15",
+    priceNote: "Sob consulta",
     image: "/products/prod-caseirinho.jpg"
   },
   {
@@ -53,7 +53,7 @@ export const PRODUCTS: Product[] = [
     badge: "Clássico Irresistível",
     title: "Caseirinho Especial com Brigadeiro",
     desc: "Massa leve, fresquinha e macia com calda generosa de brigadeiro artesanal derretendo por cima.",
-    priceNote: "A partir de R$ 15",
+    priceNote: "Sob consulta",
     image: "/products/prod-caseiro-cafe.jpg"
   },
   {
@@ -62,7 +62,7 @@ export const PRODUCTS: Product[] = [
     badge: "Sob Encomenda (3 dias)",
     title: "Bolo Decorado para Festa e Aniversário",
     desc: "O ponto alto da sua celebração. Massa estruturada ultra molhadinha, recheio alto e acabamento impecável.",
-    priceNote: "Orçamento sob medida",
+    priceNote: "Sob consulta",
     image: "/products/prod-festa-especial.jpg"
   },
   {
@@ -71,7 +71,7 @@ export const PRODUCTS: Product[] = [
     badge: "Exclusivo & Personalizado",
     title: "Bolos para Celebrações Especiais",
     desc: "Decoração personalizada ao seu gosto. Combinações clássicas como brigadeiro 50% cacau, Ninho, beijinho, morangos e uvas verdes.",
-    priceNote: "Orçamento sob medida",
+    priceNote: "Sob consulta",
     image: "/products/prod-festa-decorado.jpg"
   },
   {
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
     badge: "Atendimento B2B / CNPJ",
     title: "Kits e Fatias para Eventos Corporativos",
     desc: "Fatias padronizadas em marmitinhas com rótulo personalizado para reuniões, coffee breaks e ações comemorativas da sua empresa.",
-    priceNote: "Condições especiais",
+    priceNote: "Sob consulta",
     image: "/products/prod-corporativo.jpg"
   }
 ];
