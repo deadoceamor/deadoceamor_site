@@ -93,22 +93,49 @@ export const PRODUCTS: Product[] = [
     image: "/products/sobremesa-surpresa-de-uva.webp"
   },
   {
-    id: "bolo-festa-aniversario",
+    id: "bolo-festa-morangos-ninho",
     category: "festas",
     badge: "Sob Encomenda (3 dias)",
-    title: "Bolo Decorado para Festa e Aniversário",
-    desc: "O ponto alto da sua celebração. Massa estruturada ultra molhadinha, recheio alto e acabamento impecável.",
+    title: "Naked Cake com Morangos e Ninho",
+    desc: "Massa fofinha e molhadinha, recheio alto e generoso de Ninho com brigadeiro nobre 50% cacau, finalizado com morangos frescos e brigadeiros artesanais.",
     priceNote: "Sob consulta",
-    image: "/products/prod-festa-especial.jpg"
+    image: "/encomendas/bolo-festa-morangos-e-ninho.webp"
   },
   {
-    id: "bolo-festa-tematico",
+    id: "bolo-festa-frozen",
     category: "festas",
-    badge: "Exclusivo & Personalizado",
-    title: "Bolos para Celebrações Especiais",
-    desc: "Decoração personalizada ao seu gosto. Combinações clássicas como brigadeiro 50% cacau, Ninho, beijinho, morangos e uvas verdes.",
+    badge: "Temático Infantil",
+    title: "Bolo Temático Frozen (Elsa & Anna)",
+    desc: "Decoração primorosa em chantininho com bico em rosetas degradê suave, flocos de neve e topo temático exclusivo da Frozen.",
     priceNote: "Sob consulta",
-    image: "/products/prod-festa-decorado.jpg"
+    image: "/encomendas/bolo-tematico-frozen-alice.webp"
+  },
+  {
+    id: "bolo-festa-historia-professor",
+    category: "festas",
+    badge: "Profissões & Celebrações",
+    title: "Bolo Comemorativo História & Professor",
+    desc: "Acabamento espatulado em dois tons com topo temático celebrando vocações, formaturas, datas de aniversário e conquistas.",
+    priceNote: "Sob consulta",
+    image: "/encomendas/bolo-tematico-historia-professor.webp"
+  },
+  {
+    id: "bolo-festa-homem-aranha",
+    category: "festas",
+    badge: "Temático Infantil",
+    title: "Bolo Temático Homem-Aranha",
+    desc: "Bolo espatulado em vermelho marcante, silhueta urbana, teias e topo personalizado de heróis para animar a comemoração.",
+    priceNote: "Sob consulta",
+    image: "/encomendas/bolo-tematico-homem-aranha.webp"
+  },
+  {
+    id: "bolo-festa-superman",
+    category: "festas",
+    badge: "Homenagem Especial",
+    title: "Bolo Especial Superman / Heróis",
+    desc: "Bolo imponente com acabamento degradê moderno em preto e branco e brasão do Superman para homenagear com afeto quem é super para você.",
+    priceNote: "Sob consulta",
+    image: "/encomendas/bolo-tematico-superman-parabens.webp"
   },
   {
     id: "corporativo-eventos",
