@@ -14,8 +14,8 @@ export const LINKS = {
   ),
   instagram: "https://www.instagram.com/deadoceamor",
   ifood: "https://www.ifood.com.br/delivery/sao-paulo-sp/da-doce-amor-bolos-festa-e-sobremesas-itaquera/ea364cc7-eee7-4c77-bcc3-dbbc60b9ba5d?UTM_Medium=share",
-  keeta: "https://url-eu.mykeeta.com/XNTkur0z",
-  food99: "https://oia.99app.com/dlp9/AeAiMv?area=BR"
+  keeta: "https://url-eu.mykeeta.com/CI8DN4Mz",
+  food99: "https://oia.99app.com/dlp9/aI6GjY"
 };
 
 export interface Product {

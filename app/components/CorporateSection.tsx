@@ -1,14 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useState } from "react";
 import {
   IconSparkles,
   IconScale,
-  IconChefHat,
-  IconChevronLeft,
-  IconChevronRight
+  IconChefHat
 } from "./Icons";
-import { LINKS } from "../data";
 
 interface CorporatePhoto {
   src: string;
@@ -50,24 +47,17 @@ const CORPORATE_PHOTOS: CorporatePhoto[] = [
   }
 ];
 
-export default function CorporateSection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
+// Conjunto duplicado para preenchimento de telas amplas antes do looping contínuo
+const MARQUEE_SET = [...CORPORATE_PHOTOS, ...CORPORATE_PHOTOS];
 
-  const handleScroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const scrollAmount = 310;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth"
-      });
-    }
-  };
+export default function CorporateSection() {
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section className="corporate-section" id="corporativo">
       <div className="container">
         <div className="corporate-card">
-          {/* Header Superior: Título, Descrição e Botão de Ação */}
+          {/* Header Superior: Título, Tag e Descrição Centralizados */}
           <div className="corporate-header">
             <div className="corporate-header-text">
               <span className="corporate-tag">Corporativo & Eventos B2B</span>
@@ -77,17 +67,6 @@ export default function CorporateSection() {
               <p className="corporate-subtitle">
                 Eleve o padrão das suas reuniões, coffee breaks, comemorações de metas e datas festivas. Fornecemos fatias individuais padronizadas com a marca da sua empresa, pontualidade e zero desperdício.
               </p>
-            </div>
-            <div className="corporate-header-cta">
-              <a
-                href={LINKS.whatsappEmpresa}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-                style={{ textDecoration: "none" }}
-              >
-                Solicitar Orçamento Corporativo
-              </a>
             </div>
           </div>
 
@@ -124,57 +103,64 @@ export default function CorporateSection() {
             </div>
           </div>
 
-          {/* Galeria Horizontal Lado a Lado: Imagens em Formato 4:3 */}
+          {/* Galeria Horizontal Infinita Ultrapassando os Limites do Card */}
           <div className="corporate-gallery-container">
             <div className="corporate-gallery-header">
-              <div className="corporate-gallery-title-wrap">
-                <span className="corporate-gallery-title">
-                  Galeria de Entregas & Produções Reais
-                </span>
-                <span className="corporate-gallery-count">
-                  {CORPORATE_PHOTOS.length} fotos
-                </span>
-              </div>
-              <div className="corporate-gallery-nav">
-                <button
-                  type="button"
-                  onClick={() => handleScroll("left")}
-                  className="corporate-nav-btn"
-                  aria-label="Foto anterior"
-                  title="Ver fotos anteriores"
-                >
-                  <IconChevronLeft size={18} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleScroll("right")}
-                  className="corporate-nav-btn"
-                  aria-label="Próxima foto"
-                  title="Ver próximas fotos"
-                >
-                  <IconChevronRight size={18} />
-                </button>
-              </div>
+              <span className="corporate-gallery-title">
+                Produções reais
+              </span>
             </div>
 
-            <div className="corporate-horizontal-track" ref={scrollRef}>
-              {CORPORATE_PHOTOS.map((photo, index) => (
-                <div className="corporate-photo-card-h" key={index}>
-                  <div className="corporate-photo-aspect">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={photo.src}
-                      alt={photo.alt}
-                      className="corporate-photo-img-h"
-                      style={{ objectPosition: photo.position }}
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="corporate-photo-label-h">
-                    {photo.label}
-                  </div>
+            <div
+              className={`corporate-marquee-outer ${isPaused ? "is-paused" : ""}`}
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+              onTouchStart={() => setIsPaused(true)}
+              onTouchEnd={() => setIsPaused(false)}
+            >
+              <div className="corporate-marquee-wrapper">
+                {/* Faixa 1 */}
+                <div className="corporate-marquee-track">
+                  {MARQUEE_SET.map((photo, index) => (
+                    <div className="corporate-photo-card-h" key={`t1-${index}`}>
+                      <div className="corporate-photo-aspect">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className="corporate-photo-img-h"
+                          style={{ objectPosition: photo.position }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="corporate-photo-label-h">
+                        {photo.label}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+
+                {/* Faixa 2 (Clone contínuo para transição imperceptível em loop) */}
+                <div className="corporate-marquee-track" aria-hidden="true">
+                  {MARQUEE_SET.map((photo, index) => (
+                    <div className="corporate-photo-card-h" key={`t2-${index}`}>
+                      <div className="corporate-photo-aspect">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className="corporate-photo-img-h"
+                          style={{ objectPosition: photo.position }}
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="corporate-photo-label-h">
+                        {photo.label}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
