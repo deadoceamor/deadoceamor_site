@@ -30,31 +30,67 @@ export interface Product {
 
 export const PRODUCTS: Product[] = [
   {
-    id: "vulcao-ninho",
+    id: "mini-vulcao-ninho",
     category: "delivery",
     badge: "O Mais Pedido no Delivery",
-    title: "Mini Bolo Vulcão de Brigadeiro com Ninho",
-    desc: "Massa molhadinha de cacau com uma verdadeira erupção cremosa de brigadeiro com 50% cacau e brigadeiro de Ninho aveludado.",
+    title: "Bolo Mini Vulcão Chocolate com Ninho",
+    desc: "Massa fofinha de chocolate com uma generosa erupção cremosa de brigadeiro com 50% cacau e brigadeiro de Ninho aveludado.",
     priceNote: "Sob consulta",
-    image: "/products/prod-vulcao.jpg"
+    image: "/products/mini-vulcao-chocolate-com-ninho.webp"
   },
   {
-    id: "caseirinho-choc-ninho",
+    id: "mini-vulcao-brigadeiro",
     category: "delivery",
-    badge: "Perfeito para o Café",
-    title: "Bolo Caseirinho Chocolate + Ninho",
-    desc: "Aquele bolo fofinho e aconchegante para pronta-entrega, com cobertura e recheio generosos. Feito para reunir quem você ama.",
+    badge: "Chocolatudo Irresistível",
+    title: "Bolo Mini Vulcão Chocolate com Brigadeiro",
+    desc: "Massa fofinha de chocolate com uma deliciosa e farta cobertura vulcão de brigadeiro artesanal e confeitos crocantes.",
     priceNote: "Sob consulta",
-    image: "/products/prod-caseirinho.jpg"
+    image: "/products/mini-vulcao-chocolate-com-brigadeiro.webp"
   },
   {
-    id: "caseiro-cenoura",
+    id: "combo-casal-vulcao",
     category: "delivery",
-    badge: "Clássico Irresistível",
-    title: "Caseirinho Especial com Brigadeiro",
-    desc: "Massa leve, fresquinha e macia com calda generosa de brigadeiro artesanal derretendo por cima.",
+    badge: "Combo Especial Casal",
+    title: "Combo Casal 2 Mini Bolos Vulcão",
+    desc: "Dois deliciosos mini bolos vulcão com coberturas irresistíveis para compartilhar momentos doces a dois (200g cada).",
     priceNote: "Sob consulta",
-    image: "/products/prod-caseiro-cafe.jpg"
+    image: "/products/combo-casal-2-mini-bolos-vulcao.webp"
+  },
+  {
+    id: "bolo-caseiro-choc-ninho",
+    category: "delivery",
+    badge: "Serve de 8 a 12 Fatias",
+    title: "Bolo de Chocolate Brigadeiro com Ninho",
+    desc: "Bolo tamanho família (aprox. 850g) com massa macia de chocolate e combinação generosa de dois recheios nobres: Brigadeiro e Ninho cremoso.",
+    priceNote: "Sob consulta",
+    image: "/products/bolo-caseiro-chocolate-com-ninho-e-brigadeiro.webp"
+  },
+  {
+    id: "bolo-caseiro-choc-brigadeiro",
+    category: "delivery",
+    badge: "Serve de 8 a 12 Fatias",
+    title: "Bolo de Chocolate com Brigadeiro",
+    desc: "Bolo tamanho família de chocolate bem fofinho com uma irresistível cascata de brigadeiro artesanal.",
+    priceNote: "Sob consulta",
+    image: "/products/bolo-caseiro-chocolate-com-brigadeiro.webp"
+  },
+  {
+    id: "banoffee-individual",
+    category: "delivery",
+    badge: "Sobremesa Queridinha",
+    title: "Deliciosa Banoffee Individual",
+    desc: "Base crocante de bolacha amanteigada, doce de leite artesanal na pressão, bananas fatiadas, toque sutil de canela e chantilly leve.",
+    priceNote: "Sob consulta",
+    image: "/products/banoffee-individual.webp"
+  },
+  {
+    id: "sobremesa-surpresa-uva",
+    category: "delivery",
+    badge: "Refrescante & Cremosa",
+    title: "Sobremesa Surpresa de Uva no Pote",
+    desc: "Camadas aveludadas de creme de Ninho, uvas verdes frescas selecionadas sem sementes e cobertura nobre de chocolate.",
+    priceNote: "Sob consulta",
+    image: "/products/sobremesa-surpresa-de-uva.webp"
   },
   {
     id: "bolo-festa-aniversario",

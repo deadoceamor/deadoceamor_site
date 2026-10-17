@@ -6,6 +6,7 @@ export default function Reviews() {
     <section className="reviews-section" id="avaliacoes">
       <div className="container">
         <div className="section-header">
+          <span className="section-tag">⭐ Restaurante Super no iFood • Nota 5.0 (84+ avaliações)</span>
           <h2 className="section-title">Avaliações dos nossos clientes</h2>
           <p className="section-subtitle">
             Depoimentos reais deixados nos aplicativos de delivery e nas mensagens de WhatsApp.
