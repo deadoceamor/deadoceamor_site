@@ -48,15 +48,6 @@ export const PRODUCTS: Product[] = [
     image: "/products/mini-vulcao-chocolate-com-brigadeiro.webp"
   },
   {
-    id: "combo-casal-vulcao",
-    category: "delivery",
-    badge: "Combo Especial Casal",
-    title: "Combo Casal 2 Mini Bolos Vulcão",
-    desc: "Dois deliciosos mini bolos vulcão com coberturas irresistíveis para compartilhar momentos doces a dois (200g cada).",
-    priceNote: "Sob consulta",
-    image: "/products/combo-casal-2-mini-bolos-vulcao.webp"
-  },
-  {
     id: "bolo-caseiro-choc-ninho",
     category: "delivery",
     badge: "Serve de 8 a 12 Fatias",

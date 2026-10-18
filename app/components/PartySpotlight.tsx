@@ -4,10 +4,8 @@ import { useState } from "react";
 import {
   IconCalendar,
   IconSparkles,
-  IconScooter,
-  IconPartyCake
+  IconScooter
 } from "./Icons";
-import { LINKS } from "../data";
 
 interface PartyPhoto {
   src: string;
@@ -49,74 +47,64 @@ const PARTY_PHOTOS: PartyPhoto[] = [
   }
 ];
 
-// Conjunto duplicado para preenchimento amplo antes do looping contínuo
+// Conjunto duplicado para preenchimento de telas amplas antes do looping contínuo
 const MARQUEE_SET = [...PARTY_PHOTOS, ...PARTY_PHOTOS];
 
 export default function PartySpotlight() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section className="party-spotlight-section" id="festas">
+    <section className="corporate-section" id="festas">
       <div className="container">
-        <div className="party-spotlight-card">
-          <div className="party-grid">
-            <div>
-              <h2 className="section-title" style={{ textAlign: "left" }}>
-                Bolos para Festas e Aniversários Inesquecíveis
+        <div className="corporate-card">
+          {/* Header Superior: Título, Tag e Descrição Centralizados */}
+          <div className="corporate-header">
+            <div className="corporate-header-text">
+              <span className="corporate-tag">Bolos por Encomenda & Festas</span>
+              <h2 className="corporate-title">
+                Bolos para celebrações inesquecíveis
               </h2>
-
-              <p className="hero-desc" style={{ marginBottom: "20px" }}>
-                Nossos bolos de festa combinam recheio farto e consistente com uma apresentação elegante e acabamento fino. Garanta a data com antecedência para produção exclusiva.
+              <p className="corporate-subtitle">
+                Nossos bolos de festa combinam recheio farto e consistente com uma apresentação elegante e acabamento fino. Produções exclusivas feitas sob medida para tornar o seu momento marcante.
               </p>
+            </div>
+          </div>
 
-              <div className="steps-list">
-                <div className="step-item">
-                  <div className="step-number">
-                    <IconCalendar size={16} color="var(--brand-red)" />
-                  </div>
-                  <div className="step-text">
-                    <h4>Defina a Data e Quantidade de Convidados</h4>
-                    <p>Atendemos desde celebrações intimistas (10 pessoas) até grandes festas familiares.</p>
-                  </div>
-                </div>
-
-                <div className="step-item">
-                  <div className="step-number">
-                    <IconSparkles size={16} color="var(--brand-red)" />
-                  </div>
-                  <div className="step-text">
-                    <h4>Escolha Massa, Recheio e Decoração</h4>
-                    <p>Brigadeiro feito com 50% cacau, brigadeiro de Ninho cremoso, recheio de beijinho e frutas frescas como morangos ou uvas verdes.</p>
-                  </div>
-                </div>
-
-                <div className="step-item">
-                  <div className="step-number">
-                    <IconScooter size={16} color="var(--brand-red)" />
-                  </div>
-                  <div className="step-text">
-                    <h4>Retirada na Vila Carmosina ou Entrega Pontual</h4>
-                    <p>Retire com facilidade em Itaquera ou agende entrega protegida para Itaquera e região.</p>
-                  </div>
-                </div>
+          {/* 3 Diferenciais em Destaque no mesmo estilo de CorporateSection */}
+          <div className="corporate-features-row">
+            <div className="corporate-feature-item">
+              <div className="corporate-feature-icon">
+                <IconCalendar size={18} color="var(--brand-red)" />
               </div>
+              <div>
+                <strong>Defina data e convidados</strong>
+                <p>Atendemos desde celebrações intimistas (10 pessoas) até grandes festas familiares.</p>
+              </div>
+            </div>
 
-              <div style={{ marginTop: "24px", marginBottom: "36px" }}>
-                <a
-                  href={LINKS.whatsappFesta}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-burgundy btn-lg"
-                >
-                  <IconPartyCake size={18} />
-                  <span>Orçar Bolo de Festa no WhatsApp</span>
-                </a>
+            <div className="corporate-feature-item">
+              <div className="corporate-feature-icon">
+                <IconSparkles size={18} color="var(--brand-red)" />
+              </div>
+              <div>
+                <strong>Massa, recheio e decoração</strong>
+                <p>Brigadeiro 50% cacau, Ninho cremoso, beijinho e frutas frescas como morangos ou uvas.</p>
+              </div>
+            </div>
+
+            <div className="corporate-feature-item">
+              <div className="corporate-feature-icon">
+                <IconScooter size={18} color="var(--brand-red)" />
+              </div>
+              <div>
+                <strong>Retirada ou entrega pontual</strong>
+                <p>Retire com facilidade na Vila Carmosina ou agende entrega protegida na região.</p>
               </div>
             </div>
           </div>
 
           {/* Galeria Horizontal Infinita Ultrapassando os Limites do Card */}
-          <div className="corporate-gallery-container" style={{ marginTop: "12px" }}>
+          <div className="corporate-gallery-container">
             <div className="corporate-gallery-header">
               <span className="corporate-gallery-title">
                 Produções reais
