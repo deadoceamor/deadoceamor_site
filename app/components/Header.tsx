@@ -36,8 +36,8 @@ export default function Header() {
 
           <nav className="nav-desktop">
             <a href="#corporativo" style={{ fontWeight: 700, color: "var(--brand-red)" }}>Corporativo B2B</a>
-            <a href="#cardapio">Cardápio</a>
             <a href="#festas">Bolos de Festa</a>
+            <a href="#cardapio">Nossos Doces</a>
             <a href="#historia">Quem Somos</a>
             <a href="#avaliacoes">Avaliações</a>
             <a href="#faq">Dúvidas</a>
@@ -92,20 +92,20 @@ export default function Header() {
             <span>Corporativo B2B</span>
           </a>
           <a
-            href="#cardapio"
-            className="drawer-link"
-            onClick={() => setIsDrawerOpen(false)}
-          >
-            <IconCloche size={18} />
-            <span>Cardápio da Semana</span>
-          </a>
-          <a
             href="#festas"
             className="drawer-link"
             onClick={() => setIsDrawerOpen(false)}
           >
             <IconPartyCake size={18} />
             <span>Bolos de Festa</span>
+          </a>
+          <a
+            href="#cardapio"
+            className="drawer-link"
+            onClick={() => setIsDrawerOpen(false)}
+          >
+            <IconCloche size={18} />
+            <span>Nossos Doces</span>
           </a>
           <a
             href="#historia"

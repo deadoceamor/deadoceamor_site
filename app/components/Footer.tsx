@@ -34,9 +34,9 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">Navegação</div>
             <ul className="footer-links">
-              <li><a href="#cardapio">Cardápio da Semana</a></li>
-              <li><a href="#festas">Bolos de Festa & Aniversário</a></li>
               <li><a href="#corporativo">Eventos Corporativos</a></li>
+              <li><a href="#festas">Bolos de Festa & Aniversário</a></li>
+              <li><a href="#cardapio">Nossos Doces</a></li>
               <li><a href="#historia">Nossa História</a></li>
               <li><a href="#faq">Dúvidas Frequentes</a></li>
             </ul>
