@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import CorporateSection from "./components/CorporateSection";
@@ -15,8 +12,6 @@ import Footer from "./components/Footer";
 import FloatingWhatsApp from "./components/FloatingWhatsApp";
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<string>("todos");
-
   return (
     <>
       {/* Barra de anúncio superior + Cabeçalho + Menu mobile */}
@@ -24,7 +19,7 @@ export default function Home() {
 
       <main>
         {/* Seção principal: Banner, botões e destaques */}
-        <Hero onSelectCategory={(category) => setActiveTab(category)} />
+        <Hero />
 
         {/* Atendimento para Empresas e Eventos Corporativos (B2B) */}
         <CorporateSection />
@@ -32,8 +27,8 @@ export default function Home() {
         {/* Faixa com os 4 diferenciais da confeitaria */}
         <FeaturesStrip />
 
-        {/* Cardápio da semana com abas de filtro e cards dos produtos */}
-        <Catalog activeTab={activeTab} onTabChange={setActiveTab} />
+        {/* Cardápio de doces e bolos encomendados */}
+        <Catalog />
 
         {/* Bolos de festa sob encomenda */}
         <PartySpotlight />
@@ -56,7 +51,6 @@ export default function Home() {
 
       {/* Botão flutuante para chamar direto no WhatsApp */}
       <FloatingWhatsApp />
-
     </>
   );
 }

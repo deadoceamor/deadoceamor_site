@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import {
-  IconCloche,
-  IconPartyCake,
   IconWhatsApp,
   IconScooter,
   IconChevronDown,
@@ -18,17 +16,8 @@ interface CatalogProps {
   onTabChange?: (tab: string) => void;
 }
 
-export default function Catalog({ activeTab: externalTab, onTabChange }: CatalogProps) {
-  const [internalTab, setInternalTab] = useState<string>("todos");
+export default function Catalog({}: CatalogProps) {
   const [expandedDeliveryId, setExpandedDeliveryId] = useState<string | null>(null);
-
-  const currentTab = externalTab !== undefined ? externalTab : internalTab;
-  const setTab = onTabChange || setInternalTab;
-
-  const filteredProducts =
-    currentTab === "todos"
-      ? PRODUCTS
-      : PRODUCTS.filter((p) => p.category === currentTab);
 
   const toggleDeliveryOptions = (id: string) => {
     setExpandedDeliveryId((prev) => (prev === id ? null : id));
@@ -38,33 +27,15 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
     <section className="catalog-section" id="cardapio">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Escolha o seu doce favorito</h2>
+          <h2 className="section-title">Nossos Doces e Bolos Encomendados</h2>
           <p className="section-subtitle">
             Ingredientes selecionados e preparo artesanal.
           </p>
         </div>
 
-        {/* Category Filter Tabs */}
-        <div className="catalog-tabs">
-          <button
-            className={`catalog-tab ${currentTab === "todos" || currentTab === "delivery" ? "active" : ""}`}
-            onClick={() => setTab("todos")}
-          >
-            <IconCloche size={14} />
-            <span>Todos os Doces / Delivery</span>
-          </button>
-          <button
-            className={`catalog-tab ${currentTab === "festas" ? "active" : ""}`}
-            onClick={() => setTab("festas")}
-          >
-            <IconPartyCake size={14} />
-            <span>Bolos de Festa</span>
-          </button>
-        </div>
-
         {/* Product Cards Grid */}
         <div className="products-grid">
-          {filteredProducts.map((p) => {
+          {PRODUCTS.map((p) => {
             const isDelivery = p.category === "delivery";
             const isExpanded = isDelivery && expandedDeliveryId === p.id;
 

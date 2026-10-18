@@ -10,11 +10,7 @@ import {
 } from "./Icons";
 import { LINKS } from "../data";
 
-interface HeroProps {
-  onSelectCategory?: (category: string) => void;
-}
-
-export default function Hero({ onSelectCategory }: HeroProps) {
+export default function Hero() {
   return (
     <section className="hero-section">
       <div className="container">
