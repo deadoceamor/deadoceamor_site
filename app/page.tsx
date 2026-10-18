@@ -24,14 +24,14 @@ export default function Home() {
         {/* Atendimento para Empresas e Eventos Corporativos (B2B) */}
         <CorporateSection />
 
+        {/* Bolos de festa sob encomenda */}
+        <PartySpotlight />
+
         {/* Faixa com os 4 diferenciais da confeitaria */}
         <FeaturesStrip />
 
-        {/* Cardápio de doces e bolos encomendados */}
+        {/* Cardápio de doces para pronta-entrega e delivery */}
         <Catalog />
-
-        {/* Bolos de festa sob encomenda */}
-        <PartySpotlight />
 
         {/* Quem Somos: História do casal Diego e Andressa */}
         <AboutSection />
