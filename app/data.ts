@@ -136,15 +136,6 @@ export const PRODUCTS: Product[] = [
     desc: "Bolo imponente com acabamento degradê moderno em preto e branco e brasão do Superman para homenagear com afeto quem é super para você.",
     priceNote: "Sob consulta",
     image: "/encomendas/bolo-tematico-superman-parabens.webp"
-  },
-  {
-    id: "corporativo-eventos",
-    category: "corporativo",
-    badge: "Atendimento B2B / CNPJ",
-    title: "Kits e Fatias para Eventos Corporativos",
-    desc: "Fatias padronizadas em marmitinhas com rótulo personalizado para reuniões, coffee breaks e ações comemorativas da sua empresa.",
-    priceNote: "Sob consulta",
-    image: "/products/prod-corporativo.jpg"
   }
 ];
 

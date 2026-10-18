@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   IconCloche,
   IconPartyCake,
-  IconBuilding,
   IconWhatsApp,
   IconScooter,
   IconChevronDown,
@@ -45,7 +44,7 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
           </p>
         </div>
 
-        {/* Category Filter Tabs - 3 Focos (Delivery/Todos, Bolos de Festa, Corporativo) */}
+        {/* Category Filter Tabs */}
         <div className="catalog-tabs">
           <button
             className={`catalog-tab ${currentTab === "todos" || currentTab === "delivery" ? "active" : ""}`}
@@ -60,13 +59,6 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
           >
             <IconPartyCake size={14} />
             <span>Bolos de Festa</span>
-          </button>
-          <button
-            className={`catalog-tab ${currentTab === "corporativo" ? "active" : ""}`}
-            onClick={() => setTab("corporativo")}
-          >
-            <IconBuilding size={14} />
-            <span>Corporativo</span>
           </button>
         </div>
 
@@ -113,24 +105,13 @@ export default function Catalog({ activeTab: externalTab, onTabChange }: Catalog
                           }}
                         />
                       </button>
-                    ) : p.category === "festas" ? (
+                    ) : (
                       <a
                         href={waLink(`Olá, Diego e Andressa! Quero encomendar o bolo de festa: *${p.title}* que vi no site 🎂`)}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-whatsapp btn-sm"
                         title="Fazer pedido pelo WhatsApp"
-                      >
-                        <IconWhatsApp size={14} />
-                        <span>Pedir no Whats</span>
-                      </a>
-                    ) : (
-                      <a
-                        href={waLink(`Olá, Diego e Andressa! Gostaria de um orçamento corporativo para: *${p.title}* que vi no site ☕`)}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn btn-whatsapp btn-sm"
-                        title="Solicitar orçamento pelo WhatsApp"
                       >
                         <IconWhatsApp size={14} />
                         <span>Pedir no Whats</span>
