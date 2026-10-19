@@ -79,7 +79,7 @@ export const PRODUCTS: Product[] = [
     category: "delivery",
     badge: "Refrescante & Cremosa",
     title: "Sobremesa Surpresa de Uva no Pote",
-    desc: "Camadas aveludadas de creme de Ninho, uvas verdes frescas selecionadas sem sementes e cobertura nobre de chocolate.",
+    desc: "Camada de um Delicioso Recheio branco cremoso, uvas verdes frescas selecionadas e finalizado com um irresistível brigadeiro de 50% cacau.",
     priceNote: "Sob consulta",
     image: "/products/sobremesa-surpresa-de-uva.webp"
   },
