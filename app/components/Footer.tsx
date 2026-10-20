@@ -86,6 +86,23 @@ export default function Footer() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} D&A Doce Amor. Todos os direitos reservados.</span>
           <span>Vila Carmosina • Itaquera – São Paulo/SP</span>
+          <a
+            href="https://www.evandromqs.site"
+            target="_blank"
+            rel="noreferrer"
+            className="footer-signature"
+            title="Desenvolvido por EvandroMqs"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/evandromqs.webp"
+              alt="EvandroMqs"
+              className="footer-signature-avatar"
+            />
+            <span>
+              criado por <strong>EvandroMqs</strong>
+            </span>
+          </a>
         </div>
       </div>
     </footer>

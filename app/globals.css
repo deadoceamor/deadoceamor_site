@@ -2305,6 +2305,36 @@ details[open] .faq-icon {
   font-family: var(--font-secondary);
 }
 
+.footer-signature {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #a39c95;
+  text-decoration: none;
+  font-size: 12px;
+  transition: all 0.2s ease;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-signature:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.footer-signature-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  display: block;
+}
+
 /* Floating WhatsApp Button - Puffy Clay Massinha */
 .float-wa-btn {
   position: fixed;
@@ -2712,7 +2742,8 @@ details[open] .faq-icon {
   .footer-bottom {
     flex-direction: column;
     text-align: center;
-    gap: 8px;
+    align-items: center;
+    gap: 12px;
   }
 
   /* Floating WhatsApp Button */
