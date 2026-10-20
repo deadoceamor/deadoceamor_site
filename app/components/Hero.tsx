@@ -9,6 +9,7 @@ import {
   IconKeeta
 } from "./Icons";
 import { LINKS } from "../data";
+import { prefixPath } from "../utils";
 
 export default function Hero() {
   return (
@@ -62,7 +63,7 @@ export default function Hero() {
             <div className="hero-showcase-claycard">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/doces_sob_encomenda.webp"
+                src={prefixPath("/doces_sob_encomenda.webp")}
                 alt="D&A Doce Amor - Doces e bolos para festas"
                 className="hero-showcase-img"
               />

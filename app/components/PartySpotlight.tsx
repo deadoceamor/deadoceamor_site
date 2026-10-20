@@ -6,6 +6,7 @@ import {
   IconSparkles,
   IconScooter
 } from "./Icons";
+import { prefixPath } from "../utils";
 
 interface PartyPhoto {
   src: string;
@@ -126,7 +127,7 @@ export default function PartySpotlight() {
                       <div className="corporate-photo-aspect">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={photo.src}
+                          src={prefixPath(photo.src)}
                           alt={photo.alt}
                           className="corporate-photo-img-h"
                           style={{ objectPosition: photo.position || "center" }}
@@ -147,7 +148,7 @@ export default function PartySpotlight() {
                       <div className="corporate-photo-aspect">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={photo.src}
+                          src={prefixPath(photo.src)}
                           alt={photo.alt}
                           className="corporate-photo-img-h"
                           style={{ objectPosition: photo.position || "center" }}

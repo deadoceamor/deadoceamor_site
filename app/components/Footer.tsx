@@ -7,6 +7,7 @@ import {
   IconClock
 } from "./Icons";
 import { LINKS } from "../data";
+import { prefixPath } from "../utils";
 
 export default function Footer() {
   return (
@@ -17,7 +18,7 @@ export default function Footer() {
             <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/logomarca.webp"
+                src={prefixPath("/logomarca.webp")}
                 alt="Doce Amor"
                 className="footer-brand-logo"
                 style={{ marginBottom: 0 }}
@@ -95,7 +96,7 @@ export default function Footer() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/evandromqs.webp"
+              src={prefixPath("/evandromqs.webp")}
               alt="EvandroMqs"
               className="footer-signature-avatar"
             />

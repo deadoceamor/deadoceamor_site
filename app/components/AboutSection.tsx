@@ -1,5 +1,6 @@
 import { IconHeart, IconWhatsApp } from "./Icons";
 import { LINKS } from "../data";
+import { prefixPath } from "../utils";
 
 export default function AboutSection() {
   return (
@@ -8,7 +9,7 @@ export default function AboutSection() {
         <div className="story-photo-frame">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/nova_casal.webp"
+            src={prefixPath("/nova_casal.webp")}
             alt="Diego e Andressa - Fundadores D&A Doce Amor"
           />
         </div>

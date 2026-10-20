@@ -6,6 +6,7 @@ import {
   IconScale,
   IconChefHat
 } from "./Icons";
+import { prefixPath } from "../utils";
 
 interface CorporatePhoto {
   src: string;
@@ -126,7 +127,7 @@ export default function CorporateSection() {
                       <div className="corporate-photo-aspect">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={photo.src}
+                          src={prefixPath(photo.src)}
                           alt={photo.alt}
                           className="corporate-photo-img-h"
                           style={{ objectPosition: photo.position }}
@@ -147,7 +148,7 @@ export default function CorporateSection() {
                       <div className="corporate-photo-aspect">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={photo.src}
+                          src={prefixPath(photo.src)}
                           alt={photo.alt}
                           className="corporate-photo-img-h"
                           style={{ objectPosition: photo.position }}

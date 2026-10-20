@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { prefixPath } from "./utils";
 
 const cookie = localFont({
   src: "./Cookie-Regular.ttf",
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
     locale: "pt_BR"
   },
   icons: {
-    icon: "/logomarca.webp",
-    apple: "/logomarca.webp"
+    icon: prefixPath("/logomarca.webp"),
+    apple: prefixPath("/logomarca.webp")
   }
 };
 

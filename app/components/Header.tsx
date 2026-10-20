@@ -15,6 +15,7 @@ import {
   IconInstagram
 } from "./Icons";
 import { LINKS } from "../data";
+import { prefixPath } from "../utils";
 
 export default function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
@@ -27,7 +28,7 @@ export default function Header() {
           <a href="#" className="brand-link">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logomarca.webp"
+              src={prefixPath("/logomarca.webp")}
               alt="Doce Amor"
               className="brand-logo-img"
             />
@@ -69,7 +70,7 @@ export default function Header() {
         <div className="drawer-header">
           <div className="drawer-brand">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logomarca.webp" alt="Doce Amor" style={{ height: "40px", width: "auto" }} />
+            <img src={prefixPath("/logomarca.webp")} alt="Doce Amor" style={{ height: "40px", width: "auto" }} />
             <span className="brand-name" style={{ fontSize: "24px", top: "4px" }}>Doce Amor</span>
           </div>
           <button

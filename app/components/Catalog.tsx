@@ -9,6 +9,7 @@ import {
   IconKeeta
 } from "./Icons";
 import { PRODUCTS, LINKS } from "../data";
+import { prefixPath } from "../utils";
 
 interface CatalogProps {
   activeTab?: string;
@@ -43,7 +44,7 @@ export default function Catalog({}: CatalogProps) {
               <div className="product-card" key={p.id}>
                 <div className="product-image-box">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.image} alt={p.title} loading="lazy" />
+                  <img src={prefixPath(p.image)} alt={p.title} loading="lazy" />
                   <span className="product-card-badge">{p.badge}</span>
                 </div>
 
