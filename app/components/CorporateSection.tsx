@@ -118,6 +118,7 @@ export default function CorporateSection() {
               onMouseLeave={() => setIsPaused(false)}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
+              onTouchCancel={() => setIsPaused(false)}
             >
               <div className="corporate-marquee-wrapper">
                 {/* Faixa 1 */}
@@ -131,7 +132,8 @@ export default function CorporateSection() {
                           alt={photo.alt}
                           className="corporate-photo-img-h"
                           style={{ objectPosition: photo.position }}
-                          loading="lazy"
+                          loading="eager"
+                          decoding="async"
                         />
                       </div>
                       <div className="corporate-photo-label-h">
@@ -152,7 +154,8 @@ export default function CorporateSection() {
                           alt={photo.alt}
                           className="corporate-photo-img-h"
                           style={{ objectPosition: photo.position }}
-                          loading="lazy"
+                          loading="eager"
+                          decoding="async"
                         />
                       </div>
                       <div className="corporate-photo-label-h">

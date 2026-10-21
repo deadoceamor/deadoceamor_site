@@ -1371,6 +1371,12 @@ button {
   flex-shrink: 0;
   animation: corporateMarquee 42s linear infinite;
   will-change: transform;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
 }
 
 .corporate-marquee-outer:hover .corporate-marquee-track,
@@ -1380,9 +1386,11 @@ button {
 
 @keyframes corporateMarquee {
   0% {
+    -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
   100% {
+    -webkit-transform: translate3d(calc(-100% - 16px), 0, 0);
     transform: translate3d(calc(-100% - 16px), 0, 0);
   }
 }
@@ -1398,6 +1406,10 @@ button {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .corporate-photo-card-h:hover {
@@ -2352,7 +2364,7 @@ details[open] .faq-icon {
   font-weight: 800;
   font-size: 14.5px;
   text-decoration: none;
-  box-shadow: var(--clay-btn-green-shadow);
+  box-shadow: none;
   transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.32s ease;
   opacity: 0;
   visibility: hidden;
@@ -2376,12 +2388,12 @@ details[open] .faq-icon {
 
 .float-wa-btn:hover {
   transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 18px 36px rgba(30, 185, 86, 0.48), inset 2px 2px 5px rgba(255, 255, 255, 0.75), inset -3px -3px 7px rgba(15, 110, 48, 0.4);
+  box-shadow: none;
 }
 
 .float-wa-btn:active {
   transform: scale(0.95) translateY(2px);
-  box-shadow: 0 4px 10px rgba(30, 185, 86, 0.25), inset 2px 2px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: none;
 }
 
 /* Floating Scroll Indicator - Levemente Retangular com Raio e Relevo Polimórfico (Desktop & Mobile) */
@@ -2603,12 +2615,20 @@ details[open] .faq-icon {
     font-size: 19px;
   }
 
+  .corporate-marquee-outer {
+    mask-image: none;
+    -webkit-mask-image: none;
+    padding: 8px 0 16px;
+  }
+
   .corporate-marquee-track {
     animation-duration: 32s;
   }
 
   .corporate-photo-card-h {
     flex: 0 0 195px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 
   /* Section Spacing & Headers */
