@@ -25,6 +25,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://deadoceamor.vercel.app"),
   title: "D&A Doce Amor — Bolos Artesanais e Sobremesas | Vila Carmosina, Itaquera",
   description:
     "Bolos vulcão, caseirinhos para o café e bolos decorados para festas em Itaquera e região. Peça pelo WhatsApp ou nos aplicativos de delivery.",
@@ -32,8 +33,26 @@ export const metadata: Metadata = {
     title: "D&A Doce Amor — Bolos Artesanais em Itaquera",
     description:
       "Massa molhadinha, recheio generoso e sabor inconfundível. Encomendas para festas e entregas no mesmo dia.",
+    url: "https://deadoceamor.vercel.app",
+    siteName: "D&A Doce Amor",
+    locale: "pt_BR",
     type: "website",
-    locale: "pt_BR"
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "D&A Doce Amor — Confeitaria Artesanal em Itaquera",
+        type: "image/jpeg"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "D&A Doce Amor — Bolos Artesanais em Itaquera",
+    description:
+      "Massa molhadinha, recheio generoso e sabor inconfundível. Encomendas para festas e entregas no mesmo dia.",
+    images: ["/og-image.jpg"]
   },
   icons: {
     icon: prefixPath("/logomarca.webp"),
