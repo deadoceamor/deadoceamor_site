@@ -52,8 +52,6 @@ const PARTY_PHOTOS: PartyPhoto[] = [
 const MARQUEE_SET = [...PARTY_PHOTOS, ...PARTY_PHOTOS];
 
 export default function PartySpotlight() {
-  const [isPaused, setIsPaused] = useState(false);
-
   return (
     <section className="corporate-section" id="festas">
       <div className="container">
@@ -112,14 +110,7 @@ export default function PartySpotlight() {
               </span>
             </div>
 
-            <div
-              className={`corporate-marquee-outer ${isPaused ? "is-paused" : ""}`}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              onTouchStart={() => setIsPaused(true)}
-              onTouchEnd={() => setIsPaused(false)}
-              onTouchCancel={() => setIsPaused(false)}
-            >
+            <div className="corporate-marquee-outer">
               <div className="corporate-marquee-wrapper">
                 {/* Faixa 1 */}
                 <div className="corporate-marquee-track">
@@ -134,6 +125,7 @@ export default function PartySpotlight() {
                           style={{ objectPosition: photo.position || "center" }}
                           loading="eager"
                           decoding="async"
+                          fetchPriority={index < 3 ? "high" : "auto"}
                         />
                       </div>
                       <div className="corporate-photo-label-h">

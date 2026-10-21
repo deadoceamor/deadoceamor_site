@@ -52,8 +52,6 @@ const CORPORATE_PHOTOS: CorporatePhoto[] = [
 const MARQUEE_SET = [...CORPORATE_PHOTOS, ...CORPORATE_PHOTOS];
 
 export default function CorporateSection() {
-  const [isPaused, setIsPaused] = useState(false);
-
   return (
     <section className="corporate-section" id="corporativo">
       <div className="container">
@@ -112,14 +110,7 @@ export default function CorporateSection() {
               </span>
             </div>
 
-            <div
-              className={`corporate-marquee-outer ${isPaused ? "is-paused" : ""}`}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
-              onTouchStart={() => setIsPaused(true)}
-              onTouchEnd={() => setIsPaused(false)}
-              onTouchCancel={() => setIsPaused(false)}
-            >
+            <div className="corporate-marquee-outer">
               <div className="corporate-marquee-wrapper">
                 {/* Faixa 1 */}
                 <div className="corporate-marquee-track">
@@ -134,6 +125,7 @@ export default function CorporateSection() {
                           style={{ objectPosition: photo.position }}
                           loading="eager"
                           decoding="async"
+                          fetchPriority={index < 3 ? "high" : "auto"}
                         />
                       </div>
                       <div className="corporate-photo-label-h">
