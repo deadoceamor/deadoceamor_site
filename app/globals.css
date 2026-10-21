@@ -1354,48 +1354,37 @@ button {
   margin-left: -50vw;
   overflow: hidden;
   padding: 12px 0 20px;
-  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-}
-
-.corporate-marquee-wrapper {
-  display: flex;
-  width: max-content;
-  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .corporate-marquee-track {
   display: flex;
-  flex-shrink: 0;
-  animation: corporateMarquee 38s linear infinite;
+  width: max-content;
+  user-select: none;
+  animation: marqueeContinuous 34s linear infinite;
   will-change: transform;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  -webkit-perspective: 1000;
-  perspective: 1000;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .corporate-marquee-outer:hover .corporate-marquee-track {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes corporateMarquee {
+@keyframes marqueeContinuous {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
   100% {
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 /* Card Individual com Imagem em Formato 3:4 */
 .corporate-photo-card-h {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
   flex: 0 0 240px;
   margin-right: 16px;
   border-radius: 18px;
@@ -1406,15 +1395,21 @@ button {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
-.corporate-photo-card-h:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 16px 30px -3px rgba(185, 160, 145, 0.26), inset 2px 2px 4px #ffffff, inset -3px -3px 6px rgba(195, 175, 160, 0.16);
+@media (hover: hover) and (pointer: fine) {
+  .corporate-marquee-outer:hover .corporate-marquee-track {
+    animation-play-state: paused;
+  }
+
+  .corporate-photo-card-h:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px -3px rgba(185, 160, 145, 0.26), inset 2px 2px 4px #ffffff, inset -3px -3px 6px rgba(195, 175, 160, 0.16);
+  }
+
+  .corporate-photo-card-h:hover .corporate-photo-img-h {
+    transform: scale(1.04);
+  }
 }
 
 .corporate-photo-aspect {
@@ -1432,10 +1427,6 @@ button {
   object-fit: cover;
   display: block;
   transition: transform 0.4s ease;
-}
-
-.corporate-photo-card-h:hover .corporate-photo-img-h {
-  transform: scale(1.05);
 }
 
 .corporate-photo-label-h {
@@ -2616,20 +2607,19 @@ details[open] .faq-icon {
   }
 
   .corporate-marquee-outer {
-    mask-image: none;
-    -webkit-mask-image: none;
     padding: 8px 0 16px;
   }
 
   .corporate-marquee-track {
-    animation-duration: 26s;
+    animation-duration: 24s;
   }
 
   .corporate-photo-card-h {
+    width: 195px;
+    min-width: 195px;
+    max-width: 195px;
     flex: 0 0 195px;
     margin-right: 14px;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
   }
 
   /* Section Spacing & Headers */

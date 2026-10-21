@@ -48,8 +48,8 @@ const CORPORATE_PHOTOS: CorporatePhoto[] = [
   }
 ];
 
-// Conjunto duplicado para preenchimento de telas amplas antes do looping contínuo
-const MARQUEE_SET = [...CORPORATE_PHOTOS, ...CORPORATE_PHOTOS];
+// Conjunto com 4 repetições para garantir transição contínua de 50% sem espaços em branco
+const MARQUEE_SET = [...CORPORATE_PHOTOS, ...CORPORATE_PHOTOS, ...CORPORATE_PHOTOS, ...CORPORATE_PHOTOS];
 
 export default function CorporateSection() {
   return (
@@ -111,51 +111,26 @@ export default function CorporateSection() {
             </div>
 
             <div className="corporate-marquee-outer">
-              <div className="corporate-marquee-wrapper">
-                {/* Faixa 1 */}
-                <div className="corporate-marquee-track">
-                  {MARQUEE_SET.map((photo, index) => (
-                    <div className="corporate-photo-card-h" key={`t1-${index}`}>
-                      <div className="corporate-photo-aspect">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={prefixPath(photo.src)}
-                          alt={photo.alt}
-                          className="corporate-photo-img-h"
-                          style={{ objectPosition: photo.position }}
-                          loading="eager"
-                          decoding="async"
-                          fetchPriority={index < 3 ? "high" : "auto"}
-                        />
-                      </div>
-                      <div className="corporate-photo-label-h">
-                        {photo.label}
-                      </div>
+              <div className="corporate-marquee-track">
+                {MARQUEE_SET.map((photo, index) => (
+                  <div className="corporate-photo-card-h" key={`t-${index}`}>
+                    <div className="corporate-photo-aspect">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={prefixPath(photo.src)}
+                        alt={photo.alt}
+                        className="corporate-photo-img-h"
+                        style={{ objectPosition: photo.position }}
+                        loading="eager"
+                        decoding="async"
+                        fetchPriority={index < 4 ? "high" : "auto"}
+                      />
                     </div>
-                  ))}
-                </div>
-
-                {/* Faixa 2 (Clone contínuo para transição imperceptível em loop) */}
-                <div className="corporate-marquee-track" aria-hidden="true">
-                  {MARQUEE_SET.map((photo, index) => (
-                    <div className="corporate-photo-card-h" key={`t2-${index}`}>
-                      <div className="corporate-photo-aspect">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={prefixPath(photo.src)}
-                          alt={photo.alt}
-                          className="corporate-photo-img-h"
-                          style={{ objectPosition: photo.position }}
-                          loading="eager"
-                          decoding="async"
-                        />
-                      </div>
-                      <div className="corporate-photo-label-h">
-                        {photo.label}
-                      </div>
+                    <div className="corporate-photo-label-h">
+                      {photo.label}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
